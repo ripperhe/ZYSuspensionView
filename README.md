@@ -3,4 +3,4 @@
 * 每个界面都可以使用
 
 
- ![image](https://github.com/ripperhe/ZYSuspensionView/tree/master/image/look.png)
+ ![image](https://raw.githubusercontent.com/ripperhe/ZYSuspensionView/master/image/look.png)
