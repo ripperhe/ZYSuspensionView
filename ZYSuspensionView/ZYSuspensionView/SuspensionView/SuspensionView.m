@@ -7,7 +7,6 @@
 //
 
 #import "SuspensionView.h"
-#import "AppDelegate.h"
 #import "NSObject+Key.h"
 
 #define kTouchWidth self.frame.size.width
@@ -39,7 +38,7 @@
 #pragma mark - event response
 - (void)changeLocation:(UIPanGestureRecognizer*)p
 {
-    UIWindow *appWindow = ((AppDelegate *)([[UIApplication sharedApplication] delegate])).window;
+    UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
     CGPoint panPoint = [p locationInView:appWindow];
     
     

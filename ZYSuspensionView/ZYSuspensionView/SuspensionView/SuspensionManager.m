@@ -7,7 +7,6 @@
 //
 
 #import "SuspensionManager.h"
-#import "AppDelegate.h"
 
 @interface SuspensionManager ()
 
@@ -88,7 +87,7 @@ static id kInstanceName;
         }
     }
     [self.windowDic removeAllObjects];
-    [((AppDelegate*)([UIApplication sharedApplication].delegate)).window makeKeyAndVisible];
+    [[UIApplication sharedApplication].delegate.window makeKeyAndVisible];
 }
 
 @end
