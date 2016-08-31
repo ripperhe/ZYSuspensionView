@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9C75CCF1D6B1230003054B0"
-               BuildableName = "ZYSuspensionView.app"
-               BlueprintName = "ZYSuspensionView"
-               ReferencedContainer = "container:ZYSuspensionView.xcodeproj">
+               BlueprintIdentifier = "C94F39C81D769874006DAA6B"
+               BuildableName = "ZYSuspensionViewDemo.app"
+               BlueprintName = "ZYSuspensionViewDemo"
+               ReferencedContainer = "container:ZYSuspensionViewDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9C75CE81D6B1230003054B0"
-               BuildableName = "ZYSuspensionViewTests.xctest"
-               BlueprintName = "ZYSuspensionViewTests"
-               ReferencedContainer = "container:ZYSuspensionView.xcodeproj">
+               BlueprintIdentifier = "C94F39E11D769874006DAA6B"
+               BuildableName = "ZYSuspensionViewDemoTests.xctest"
+               BlueprintName = "ZYSuspensionViewDemoTests"
+               ReferencedContainer = "container:ZYSuspensionViewDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9C75CF31D6B1230003054B0"
-               BuildableName = "ZYSuspensionViewUITests.xctest"
-               BlueprintName = "ZYSuspensionViewUITests"
-               ReferencedContainer = "container:ZYSuspensionView.xcodeproj">
+               BlueprintIdentifier = "C94F39EC1D769874006DAA6B"
+               BuildableName = "ZYSuspensionViewDemoUITests.xctest"
+               BlueprintName = "ZYSuspensionViewDemoUITests"
+               ReferencedContainer = "container:ZYSuspensionViewDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9C75CCF1D6B1230003054B0"
-            BuildableName = "ZYSuspensionView.app"
-            BlueprintName = "ZYSuspensionView"
-            ReferencedContainer = "container:ZYSuspensionView.xcodeproj">
+            BlueprintIdentifier = "C94F39C81D769874006DAA6B"
+            BuildableName = "ZYSuspensionViewDemo.app"
+            BlueprintName = "ZYSuspensionViewDemo"
+            ReferencedContainer = "container:ZYSuspensionViewDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9C75CCF1D6B1230003054B0"
-            BuildableName = "ZYSuspensionView.app"
-            BlueprintName = "ZYSuspensionView"
-            ReferencedContainer = "container:ZYSuspensionView.xcodeproj">
+            BlueprintIdentifier = "C94F39C81D769874006DAA6B"
+            BuildableName = "ZYSuspensionViewDemo.app"
+            BlueprintName = "ZYSuspensionViewDemo"
+            ReferencedContainer = "container:ZYSuspensionViewDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9C75CCF1D6B1230003054B0"
-            BuildableName = "ZYSuspensionView.app"
-            BlueprintName = "ZYSuspensionView"
-            ReferencedContainer = "container:ZYSuspensionView.xcodeproj">
+            BlueprintIdentifier = "C94F39C81D769874006DAA6B"
+            BuildableName = "ZYSuspensionViewDemo.app"
+            BlueprintName = "ZYSuspensionViewDemo"
+            ReferencedContainer = "container:ZYSuspensionViewDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

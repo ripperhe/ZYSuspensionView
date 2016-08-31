@@ -1,18 +1,18 @@
 //
-//  ZYSuspensionViewUITests.m
-//  ZYSuspensionViewUITests
+//  ZYSuspensionViewDemoUITests.m
+//  ZYSuspensionViewDemoUITests
 //
-//  Created by ripper on 16/8/22.
+//  Created by ripper on 16/8/31.
 //  Copyright © 2016年 ripper. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface ZYSuspensionViewUITests : XCTestCase
+@interface ZYSuspensionViewDemoUITests : XCTestCase
 
 @end
 
-@implementation ZYSuspensionViewUITests
+@implementation ZYSuspensionViewDemoUITests
 
 - (void)setUp {
     [super setUp];

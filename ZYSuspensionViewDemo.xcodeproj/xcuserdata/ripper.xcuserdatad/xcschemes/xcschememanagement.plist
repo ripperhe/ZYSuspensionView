@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ZYSuspensionView.xcscheme</key>
+		<key>ZYSuspensionViewDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C9C75CCF1D6B1230003054B0</key>
+		<key>C94F39C81D769874006DAA6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9C75CE81D6B1230003054B0</key>
+		<key>C94F39E11D769874006DAA6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9C75CF31D6B1230003054B0</key>
+		<key>C94F39EC1D769874006DAA6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

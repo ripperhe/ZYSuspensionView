@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  ZYSuspensionView
+//  ZYSuspensionViewDemo
 //
-//  Created by ripper on 16/8/22.
+//  Created by ripper on 16/8/31.
 //  Copyright © 2016年 ripper. All rights reserved.
 //
 
