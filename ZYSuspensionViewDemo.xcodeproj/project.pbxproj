@@ -15,9 +15,9 @@
 		C94F39DC1D769874006DAA6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */; };
 		C94F39E71D769874006DAA6B /* ZYSuspensionViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39E61D769874006DAA6B /* ZYSuspensionViewDemoTests.m */; };
 		C94F39F21D769874006DAA6B /* ZYSuspensionViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */; };
-		C94F3A061D7698B5006DAA6B /* NSObject+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A011D7698B5006DAA6B /* NSObject+Key.m */; };
-		C94F3A071D7698B5006DAA6B /* SuspensionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A031D7698B5006DAA6B /* SuspensionManager.m */; };
-		C94F3A081D7698B5006DAA6B /* SuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A051D7698B5006DAA6B /* SuspensionView.m */; };
+		C94F3A061D7698B5006DAA6B /* NSObject+zy_Key.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A011D7698B5006DAA6B /* NSObject+zy_Key.m */; };
+		C94F3A071D7698B5006DAA6B /* ZYSuspensionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A031D7698B5006DAA6B /* ZYSuspensionManager.m */; };
+		C94F3A081D7698B5006DAA6B /* ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A051D7698B5006DAA6B /* ZYSuspensionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +54,12 @@
 		C94F39ED1D769874006DAA6B /* ZYSuspensionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionViewDemoUITests.m; sourceTree = "<group>"; };
 		C94F39F31D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C94F3A001D7698B5006DAA6B /* NSObject+Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Key.h"; sourceTree = "<group>"; };
-		C94F3A011D7698B5006DAA6B /* NSObject+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Key.m"; sourceTree = "<group>"; };
-		C94F3A021D7698B5006DAA6B /* SuspensionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionManager.h; sourceTree = "<group>"; };
-		C94F3A031D7698B5006DAA6B /* SuspensionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionManager.m; sourceTree = "<group>"; };
-		C94F3A041D7698B5006DAA6B /* SuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionView.h; sourceTree = "<group>"; };
-		C94F3A051D7698B5006DAA6B /* SuspensionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionView.m; sourceTree = "<group>"; };
+		C94F3A001D7698B5006DAA6B /* NSObject+zy_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+zy_Key.h"; sourceTree = "<group>"; };
+		C94F3A011D7698B5006DAA6B /* NSObject+zy_Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+zy_Key.m"; sourceTree = "<group>"; };
+		C94F3A021D7698B5006DAA6B /* ZYSuspensionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSuspensionManager.h; sourceTree = "<group>"; };
+		C94F3A031D7698B5006DAA6B /* ZYSuspensionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionManager.m; sourceTree = "<group>"; };
+		C94F3A041D7698B5006DAA6B /* ZYSuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSuspensionView.h; sourceTree = "<group>"; };
+		C94F3A051D7698B5006DAA6B /* ZYSuspensionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		C94F39C01D769874006DAA6B = {
 			isa = PBXGroup;
 			children = (
-				C94F39FF1D7698B5006DAA6B /* SuspensionView */,
+				C94F39FF1D7698B5006DAA6B /* ZYSuspensionView */,
 				C94F39CB1D769874006DAA6B /* ZYSuspensionViewDemo */,
 				C94F39E51D769874006DAA6B /* ZYSuspensionViewDemoTests */,
 				C94F39F01D769874006DAA6B /* ZYSuspensionViewDemoUITests */,
@@ -150,16 +150,17 @@
 			path = ZYSuspensionViewDemoUITests;
 			sourceTree = "<group>";
 		};
-		C94F39FF1D7698B5006DAA6B /* SuspensionView */ = {
+		C94F39FF1D7698B5006DAA6B /* ZYSuspensionView */ = {
 			isa = PBXGroup;
 			children = (
-				C94F3A001D7698B5006DAA6B /* NSObject+Key.h */,
-				C94F3A011D7698B5006DAA6B /* NSObject+Key.m */,
-				C94F3A021D7698B5006DAA6B /* SuspensionManager.h */,
-				C94F3A031D7698B5006DAA6B /* SuspensionManager.m */,
-				C94F3A041D7698B5006DAA6B /* SuspensionView.h */,
-				C94F3A051D7698B5006DAA6B /* SuspensionView.m */,
+				C94F3A001D7698B5006DAA6B /* NSObject+zy_Key.h */,
+				C94F3A011D7698B5006DAA6B /* NSObject+zy_Key.m */,
+				C94F3A021D7698B5006DAA6B /* ZYSuspensionManager.h */,
+				C94F3A031D7698B5006DAA6B /* ZYSuspensionManager.m */,
+				C94F3A041D7698B5006DAA6B /* ZYSuspensionView.h */,
+				C94F3A051D7698B5006DAA6B /* ZYSuspensionView.m */,
 			);
+			name = ZYSuspensionView;
 			path = SuspensionView;
 			sourceTree = "<group>";
 		};
@@ -230,6 +231,7 @@
 				TargetAttributes = {
 					C94F39C81D769874006DAA6B = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 7B8E83XAJ6;
 					};
 					C94F39E11D769874006DAA6B = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -294,10 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C94F39D41D769874006DAA6B /* ViewController.m in Sources */,
-				C94F3A081D7698B5006DAA6B /* SuspensionView.m in Sources */,
-				C94F3A061D7698B5006DAA6B /* NSObject+Key.m in Sources */,
+				C94F3A081D7698B5006DAA6B /* ZYSuspensionView.m in Sources */,
+				C94F3A061D7698B5006DAA6B /* NSObject+zy_Key.m in Sources */,
 				C94F39D11D769874006DAA6B /* AppDelegate.m in Sources */,
-				C94F3A071D7698B5006DAA6B /* SuspensionManager.m in Sources */,
+				C94F3A071D7698B5006DAA6B /* ZYSuspensionManager.m in Sources */,
 				C94F39CE1D769874006DAA6B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7B8E83XAJ6;
 				INFOPLIST_FILE = ZYSuspensionViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ripper.ZYSuspensionViewDemo;
@@ -452,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7B8E83XAJ6;
 				INFOPLIST_FILE = ZYSuspensionViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ripper.ZYSuspensionViewDemo;

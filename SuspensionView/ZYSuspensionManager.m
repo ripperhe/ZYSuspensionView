@@ -1,21 +1,22 @@
 //
-//  SuspensionManager.m
-//  ButtonTest
+//  ZYSuspensionManager.m
+//  ZYSuspensionView
 //
 //  Created by ripper on 16/7/19.
 //  Copyright © 2016年 ripper. All rights reserved.
 //
 
-#import "SuspensionManager.h"
+#import "ZYSuspensionManager.h"
 
-@interface SuspensionManager ()
+@interface ZYSuspensionManager ()
 
+/** 持有window的字典 */
 @property (nonatomic, strong) NSMutableDictionary *windowDic;
 
 @end
 
 static id kInstanceName;
-@implementation SuspensionManager
+@implementation ZYSuspensionManager
 
 + (id)allocWithZone:(struct _NSZone *)zone
 {
@@ -25,6 +26,7 @@ static id kInstanceName;
     });
     return kInstanceName;
 }
+
 + (instancetype)shared
 {
     static dispatch_once_t onceToken;
@@ -33,11 +35,13 @@ static id kInstanceName;
     });
     return kInstanceName;
 }
+
 + (id)copyWithZone:(struct _NSZone *)zone
 {
     return kInstanceName;
 }
 
+#pragma mark - getter
 - (NSMutableDictionary *)windowDic
 {
     if (!_windowDic) {
@@ -46,6 +50,7 @@ static id kInstanceName;
     return _windowDic;
 }
 
+#pragma mark - public methods
 
 - (UIWindow *)windowForKey:(NSString *)key
 {

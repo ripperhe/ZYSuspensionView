@@ -1,6 +1,6 @@
 //
-//  SuspensionManager.h
-//  ButtonTest
+//  ZYSuspensionManager.h
+//  ZYSuspensionView
 //
 //  Created by ripper on 16/7/19.
 //  Copyright © 2016年 ripper. All rights reserved.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SuspensionManager : NSObject
+@interface ZYSuspensionManager : NSObject
 
 + (instancetype)shared;
 

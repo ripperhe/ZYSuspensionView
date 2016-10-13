@@ -1,20 +1,21 @@
 //
-//  SuspensionView.m
-//  Latin2.0
+//  ZYSuspensionView.m
+//  ZYSuspensionView
 //
 //  Created by ripper on 16-02-25.
 //  Copyright (c) 2016年 ripper. All rights reserved.
 //
 
-#import "SuspensionView.h"
-#import "NSObject+Key.h"
+#import "ZYSuspensionView.h"
+#import "NSObject+zy_Key.h"
+#import "ZYSuspensionManager.h"
 
 #define kTouchWidth self.frame.size.width
 #define kTouchHeight self.frame.size.height
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight [[UIScreen mainScreen] bounds].size.height
 
-@implementation SuspensionView
+@implementation ZYSuspensionView
 
 - (instancetype)initWithFrame:(CGRect)frame color:(UIColor *)color
 {
@@ -41,7 +42,7 @@
     UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
     CGPoint panPoint = [p locationInView:appWindow];
     
-    
+    //透明度
     if(p.state == UIGestureRecognizerStateBegan)
     {
         self.alpha = 1;
@@ -51,11 +52,11 @@
         self.alpha = .7;
     }
     
+    //位置
     if(p.state == UIGestureRecognizerStateChanged)
     {
-        [[SuspensionManager shared] windowForKey:self.md5Key].center = CGPointMake(panPoint.x, panPoint.y);
-    }
-    else if(p.state == UIGestureRecognizerStateEnded)
+        [[ZYSuspensionManager shared] windowForKey:self.md5Key].center = CGPointMake(panPoint.x, panPoint.y);
+    }else if(p.state == UIGestureRecognizerStateEnded)
     {
         CGFloat left = fabs(panPoint.x);
         CGFloat right = fabs(kScreenWidth - left);
@@ -89,14 +90,14 @@
 //        }
         
         [UIView animateWithDuration:.25 animations:^{
-            [[SuspensionManager shared] windowForKey:self.md5Key].center = newCenter;
+            [[ZYSuspensionManager shared] windowForKey:self.md5Key].center = newCenter;
         }];
     }
 }
 
 - (void)click
 {
-    if(self.delegate && [self.delegate respondsToSelector:@selector(suspensionViewClick:)])
+    if([self.delegate respondsToSelector:@selector(suspensionViewClick:)])
     {
         [self.delegate suspensionViewClick:self];
     }
@@ -105,6 +106,8 @@
 #pragma mark - public methods
 - (void)show
 {
+    UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
+    
     UIWindow *backWindow = [[UIWindow alloc] initWithFrame:self.frame];
     backWindow.windowLevel = UIWindowLevelAlert * 2;
     backWindow.rootViewController = [[UIViewController alloc] init];
@@ -113,15 +116,18 @@
     backWindow.layer.borderWidth = 1.0;
     backWindow.clipsToBounds = YES;
     [backWindow makeKeyAndVisible];
-    [[SuspensionManager shared] saveWindow:backWindow forKey:self.md5Key];
+    [[ZYSuspensionManager shared] saveWindow:backWindow forKey:self.md5Key];
 
     self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     [backWindow addSubview:self];
+    
+    //保持原先的keyWindow
+    [currentKeyWindow makeKeyWindow];
 }
 
 - (void)removeFromScreen
 {
-    [[SuspensionManager shared] destroyWindowForKey:self.md5Key replaceWith:nil];
+    [[ZYSuspensionManager shared] destroyWindowForKey:self.md5Key replaceWith:nil];
 }
 
 @end
