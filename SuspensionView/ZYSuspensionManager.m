@@ -62,17 +62,11 @@ static id kInstanceName;
     [self.windowDic setObject:window forKey:key];
 }
 
-- (void)destroyWindowForKey:(NSString *)key replaceWith:(UIWindow *)newWindow
+- (void)destroyWindowForKey:(NSString *)key newKeyWindow:(UIWindow *)newWindow
 {
     UIWindow *window = [self.windowDic objectForKey:key];
     window.hidden = YES;
-    if (window.rootViewController.presentedViewController) {
-        [window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
-    }
     window.rootViewController = nil;
-    for (UIView *view in window.subviews) {
-        [view removeFromSuperview];
-    }
     [self.windowDic removeObjectForKey:key];
     if (newWindow) {
         [newWindow makeKeyAndVisible];
@@ -83,13 +77,7 @@ static id kInstanceName;
 {
     for (UIWindow *window in self.windowDic.allValues) {
         window.hidden = YES;
-        if (window.rootViewController.presentedViewController) {
-            [window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
-        }
         window.rootViewController = nil;
-        for (UIView *view in window.subviews) {
-            [view removeFromSuperview];
-        }
     }
     [self.windowDic removeAllObjects];
     [[UIApplication sharedApplication].delegate.window makeKeyAndVisible];

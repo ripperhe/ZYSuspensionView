@@ -11,12 +11,15 @@
 @class ZYSuspensionView;
 
 @protocol ZYSuspensionViewDelegate <NSObject>
+/** 点击悬浮球的回调 */
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView;
 @end
 
 
 @interface ZYSuspensionView : UIButton
-@property(nonatomic,weak) id<ZYSuspensionViewDelegate> delegate;
+
+/** 代理 */
+@property (nonatomic, weak) id<ZYSuspensionViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color;
 /**

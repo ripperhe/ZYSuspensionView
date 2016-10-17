@@ -11,7 +11,6 @@
 
 @interface ViewController ()<ZYSuspensionViewDelegate>
 
-@property (nonatomic, weak) UITextField *tf;
 @end
 
 @implementation ViewController
@@ -26,17 +25,13 @@
     sus.delegate = self;
     [sus show];
     
+    [NSUserDefaults standardUserDefaults]
+    
     ZYSuspensionView *sus2 = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(-50.0/6, 200, 50, 50)
                                                                color:[UIColor colorWithRed:0.50f green:0.89f blue:0.31f alpha:1.00f]];
     [sus2 setTitle:@"测试2" forState:UIControlStateNormal];
     sus2.delegate = self;
     [sus2 show];
-    
-    
-    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 100, 40)];
-    tf.backgroundColor = [UIColor redColor];
-    [self.view addSubview:tf];
-    self.tf = tf;
 }
 
 #pragma mark - SuspensionViewDelegate
@@ -49,7 +44,8 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event\
 {
-    [self.tf resignFirstResponder];
+
+
 }
 
 

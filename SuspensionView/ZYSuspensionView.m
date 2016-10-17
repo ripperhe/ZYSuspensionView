@@ -111,23 +111,25 @@
     UIWindow *backWindow = [[UIWindow alloc] initWithFrame:self.frame];
     backWindow.windowLevel = UIWindowLevelAlert * 2;
     backWindow.rootViewController = [[UIViewController alloc] init];
-    backWindow.layer.cornerRadius = backWindow.frame.size.width / 2.0;
-    backWindow.layer.borderColor = [UIColor whiteColor].CGColor;
-    backWindow.layer.borderWidth = 1.0;
-    backWindow.clipsToBounds = YES;
     [backWindow makeKeyAndVisible];
+    //持有window
     [[ZYSuspensionManager shared] saveWindow:backWindow forKey:self.md5Key];
 
     self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    self.layer.cornerRadius = self.frame.size.width / 2.0;
+    self.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.layer.borderWidth = 1.0;
+    self.clipsToBounds = YES;
+    
     [backWindow addSubview:self];
     
-    //保持原先的keyWindow
+    //保持原先的keyWindow，避免一些不必要的问题
     [currentKeyWindow makeKeyWindow];
 }
 
 - (void)removeFromScreen
 {
-    [[ZYSuspensionManager shared] destroyWindowForKey:self.md5Key replaceWith:nil];
+    [[ZYSuspensionManager shared] destroyWindowForKey:self.md5Key newKeyWindow:nil];
 }
 
 @end

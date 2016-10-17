@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZYSuspensionViewDemo/ViewController.m"
-            timestampString = "498048761.094727"
+            timestampString = "498406373.557763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-suspensionViewClick:"
             landmarkType = "7">
          </BreakpointContent>

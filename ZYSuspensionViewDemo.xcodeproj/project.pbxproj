@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92270781DB512F90031AB87 /* ZYTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92270771DB512F90031AB87 /* ZYTestController.m */; };
 		C94F39CE1D769874006DAA6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39CD1D769874006DAA6B /* main.m */; };
 		C94F39D11D769874006DAA6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39D01D769874006DAA6B /* AppDelegate.m */; };
 		C94F39D41D769874006DAA6B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39D31D769874006DAA6B /* ViewController.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C92270761DB512F90031AB87 /* ZYTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTestController.h; sourceTree = "<group>"; };
+		C92270771DB512F90031AB87 /* ZYTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTestController.m; sourceTree = "<group>"; };
 		C94F39C91D769874006DAA6B /* ZYSuspensionViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSuspensionViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F39CD1D769874006DAA6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C94F39CF1D769874006DAA6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				C94F39D01D769874006DAA6B /* AppDelegate.m */,
 				C94F39D21D769874006DAA6B /* ViewController.h */,
 				C94F39D31D769874006DAA6B /* ViewController.m */,
+				C92270761DB512F90031AB87 /* ZYTestController.h */,
+				C92270771DB512F90031AB87 /* ZYTestController.m */,
 				C94F39D51D769874006DAA6B /* Main.storyboard */,
 				C94F39D81D769874006DAA6B /* Assets.xcassets */,
 				C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */,
@@ -301,6 +306,7 @@
 				C94F39D11D769874006DAA6B /* AppDelegate.m in Sources */,
 				C94F3A071D7698B5006DAA6B /* ZYSuspensionManager.m in Sources */,
 				C94F39CE1D769874006DAA6B /* main.m in Sources */,
+				C92270781DB512F90031AB87 /* ZYTestController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
