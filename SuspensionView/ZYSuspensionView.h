@@ -15,17 +15,18 @@
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView;
 @end
 
-
 @interface ZYSuspensionView : UIButton
 
 /** 代理 */
 @property (nonatomic, weak) id<ZYSuspensionViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color;
+
 /**
  *  显示
  */
 - (void)show;
+
 /**
  *  移除
  */

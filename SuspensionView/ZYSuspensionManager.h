@@ -21,6 +21,7 @@
  *  @return window
  */
 - (UIWindow *)windowForKey:(NSString *)key;
+
 /**
  *  持有一个window并设置key值
  *
@@ -28,6 +29,7 @@
  *  @param key    key值
  */
 - (void)saveWindow:(UIWindow *)window forKey:(NSString *)key;
+
 /**
  *  销毁一个window
  *
@@ -35,6 +37,7 @@
  *  @param newWindow 手动指定一个keyWindow，一般情况不需要手动指定，系统自动会变换
  */
 - (void)destroyWindowForKey:(NSString *)key newKeyWindow:(UIWindow *)newWindow;
+
 /**
  *  销毁当前所有window
  */
