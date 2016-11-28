@@ -1,5 +1,5 @@
 //
-//  NSObject+zy_Key.h
+//  NSObject+ZYSuspensionView.h
 //  ZYSuspensionView
 //
 //  Created by ripper on 16/7/20.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (zy_key)
+@interface NSObject (ZYSuspensionView)
 
 /**
  *  懒加载的md5Key

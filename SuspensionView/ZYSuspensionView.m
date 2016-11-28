@@ -7,7 +7,7 @@
 //
 
 #import "ZYSuspensionView.h"
-#import "NSObject+zy_Key.h"
+#import "NSObject+ZYSuspensionView.h"
 #import "ZYSuspensionManager.h"
 
 #define kTouchWidth self.frame.size.width

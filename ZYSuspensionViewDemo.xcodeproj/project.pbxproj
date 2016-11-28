@@ -16,7 +16,7 @@
 		C94F39DC1D769874006DAA6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */; };
 		C94F39E71D769874006DAA6B /* ZYSuspensionViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39E61D769874006DAA6B /* ZYSuspensionViewDemoTests.m */; };
 		C94F39F21D769874006DAA6B /* ZYSuspensionViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */; };
-		C94F3A061D7698B5006DAA6B /* NSObject+zy_Key.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A011D7698B5006DAA6B /* NSObject+zy_Key.m */; };
+		C94F3A061D7698B5006DAA6B /* NSObject+ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A011D7698B5006DAA6B /* NSObject+ZYSuspensionView.m */; };
 		C94F3A071D7698B5006DAA6B /* ZYSuspensionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A031D7698B5006DAA6B /* ZYSuspensionManager.m */; };
 		C94F3A081D7698B5006DAA6B /* ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F3A051D7698B5006DAA6B /* ZYSuspensionView.m */; };
 /* End PBXBuildFile section */
@@ -57,8 +57,8 @@
 		C94F39ED1D769874006DAA6B /* ZYSuspensionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionViewDemoUITests.m; sourceTree = "<group>"; };
 		C94F39F31D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C94F3A001D7698B5006DAA6B /* NSObject+zy_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+zy_Key.h"; sourceTree = "<group>"; };
-		C94F3A011D7698B5006DAA6B /* NSObject+zy_Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+zy_Key.m"; sourceTree = "<group>"; };
+		C94F3A001D7698B5006DAA6B /* NSObject+ZYSuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZYSuspensionView.h"; sourceTree = "<group>"; };
+		C94F3A011D7698B5006DAA6B /* NSObject+ZYSuspensionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZYSuspensionView.m"; sourceTree = "<group>"; };
 		C94F3A021D7698B5006DAA6B /* ZYSuspensionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSuspensionManager.h; sourceTree = "<group>"; };
 		C94F3A031D7698B5006DAA6B /* ZYSuspensionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionManager.m; sourceTree = "<group>"; };
 		C94F3A041D7698B5006DAA6B /* ZYSuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSuspensionView.h; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 		C94F39FF1D7698B5006DAA6B /* ZYSuspensionView */ = {
 			isa = PBXGroup;
 			children = (
-				C94F3A001D7698B5006DAA6B /* NSObject+zy_Key.h */,
-				C94F3A011D7698B5006DAA6B /* NSObject+zy_Key.m */,
+				C94F3A001D7698B5006DAA6B /* NSObject+ZYSuspensionView.h */,
+				C94F3A011D7698B5006DAA6B /* NSObject+ZYSuspensionView.m */,
 				C94F3A021D7698B5006DAA6B /* ZYSuspensionManager.h */,
 				C94F3A031D7698B5006DAA6B /* ZYSuspensionManager.m */,
 				C94F3A041D7698B5006DAA6B /* ZYSuspensionView.h */,
@@ -302,7 +302,7 @@
 			files = (
 				C94F39D41D769874006DAA6B /* ViewController.m in Sources */,
 				C94F3A081D7698B5006DAA6B /* ZYSuspensionView.m in Sources */,
-				C94F3A061D7698B5006DAA6B /* NSObject+zy_Key.m in Sources */,
+				C94F3A061D7698B5006DAA6B /* NSObject+ZYSuspensionView.m in Sources */,
 				C94F39D11D769874006DAA6B /* AppDelegate.m in Sources */,
 				C94F3A071D7698B5006DAA6B /* ZYSuspensionManager.m in Sources */,
 				C94F39CE1D769874006DAA6B /* main.m in Sources */,

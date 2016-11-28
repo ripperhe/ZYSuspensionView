@@ -1,18 +1,18 @@
 //
-//  NSObject+zy_Key.m
+//  NSObject+ZYSuspensionView.m
 //  ZYSuspensionView
 //
 //  Created by ripper on 16/7/20.
 //  Copyright © 2016年 ripper. All rights reserved.
 //
 
-#import "NSObject+zy_Key.h"
+#import "NSObject+ZYSuspensionView.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <objc/runtime.h>
 
 const char *md5KeyChar = "md5KeyChar";
 
-@implementation NSObject (zy_key)
+@implementation NSObject (ZYSuspensionView)
 
 - (NSString *)md5Key
 {
