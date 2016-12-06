@@ -15,12 +15,25 @@
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView;
 @end
 
+typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
+    /** 仅可停留在左、右 */
+    ZYSuspensionViewLeanTypeHorizontal,
+    /** 可停留在上、下、左、右 */
+    ZYSuspensionViewLeanTypeEachSide
+};
+
+
 @interface ZYSuspensionView : UIButton
 
 /** 代理 */
 @property (nonatomic, weak) id<ZYSuspensionViewDelegate> delegate;
+/** 倚靠类型 default is ZYSuspensionViewLeanTypeHorizontal */
+@property (nonatomic, assign) ZYSuspensionViewLeanType leanType;
 
-- (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color;
+
++ (instancetype)defaultSuspensionViewWithDelegate:(id<ZYSuspensionViewDelegate>)delegate;
+
+- (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color delegate:(id<ZYSuspensionViewDelegate>)delegate;
 
 /**
  *  显示

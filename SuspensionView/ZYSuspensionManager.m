@@ -15,31 +15,27 @@
 
 @end
 
-static id kInstanceName;
 @implementation ZYSuspensionManager
+
+static ZYSuspensionManager *_instance;
+
++ (instancetype)shared
+{
+    if (!_instance) {
+        _instance = [[self alloc] init];
+    }
+    return _instance;
+}
 
 + (id)allocWithZone:(struct _NSZone *)zone
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        kInstanceName = [super allocWithZone:zone];
+        _instance = [super allocWithZone:zone];
     });
-    return kInstanceName;
+    return _instance;
 }
 
-+ (instancetype)shared
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        kInstanceName = [[self alloc] init];
-    });
-    return kInstanceName;
-}
-
-+ (id)copyWithZone:(struct _NSZone *)zone
-{
-    return kInstanceName;
-}
 
 #pragma mark - getter
 - (NSMutableDictionary *)windowDic
