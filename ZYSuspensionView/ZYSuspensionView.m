@@ -15,7 +15,7 @@
 
 + (instancetype)defaultSuspensionViewWithDelegate:(id<ZYSuspensionViewDelegate>)delegate
 {
-    ZYSuspensionView *sus = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(0, 100, 50, 50)
+    ZYSuspensionView *sus = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(- 50.0 / 6, 100, 50, 50)
                                                               color:[UIColor colorWithRed:0.21f green:0.45f blue:0.88f alpha:1.00f]
                                                            delegate:delegate];
     return sus;
@@ -112,8 +112,7 @@
 {
     UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
     
-    CGFloat x = - self.frame.size.width / 6;
-    UIWindow *backWindow = [[UIWindow alloc] initWithFrame:CGRectMake(x, self.frame.origin.y, self.frame.size.width, self.frame.size.height)];
+    UIWindow *backWindow = [[UIWindow alloc] initWithFrame:self.frame];
     backWindow.windowLevel = UIWindowLevelAlert * 2;
     backWindow.rootViewController = [[UIViewController alloc] init];
     [backWindow makeKeyAndVisible];

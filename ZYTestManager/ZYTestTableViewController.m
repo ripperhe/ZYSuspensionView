@@ -45,7 +45,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        CGRect frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 20 * 2, [UIScreen mainScreen].bounds.size.height - 150);
+        CGRect frame = CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 10 * 2, [UIScreen mainScreen].bounds.size.height - 120);
         UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -59,8 +59,7 @@
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.text = @"Test Items";
         titleLabel.font = [UIFont systemFontOfSize:20];
-        self.tableView.tableHeaderView = titleLabel;
-    
+        _tableView.tableHeaderView = titleLabel;
     }
     return _tableView;
 }

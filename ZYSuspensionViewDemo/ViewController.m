@@ -55,7 +55,7 @@
     // 仅仅创建一个悬浮球，自行实现点击的代理方法
     
     UIColor *color = [UIColor colorWithRed:0.50f green:0.89f blue:0.31f alpha:1.00f];
-    ZYSuspensionView *sus2 = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(0, 200, 50, 50)
+    ZYSuspensionView *sus2 = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(- 50.0 / 6, 200, 50, 50)
                                                                color:color
                                                             delegate:self];
     sus2.leanType = ZYSuspensionViewLeanTypeEachSide;
