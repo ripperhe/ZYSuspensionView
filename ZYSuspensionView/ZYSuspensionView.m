@@ -17,7 +17,7 @@
 {
     ZYSuspensionView *sus = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(0, 100, 50, 50)
                                                               color:[UIColor colorWithRed:0.21f green:0.45f blue:0.88f alpha:1.00f]
-                                                           delegate:nil];
+                                                           delegate:delegate];
     return sus;
 }
 
@@ -47,14 +47,11 @@
     
     if(p.state == UIGestureRecognizerStateBegan) {
         self.alpha = 1;
-    }else if (p.state == UIGestureRecognizerStateEnded) {
-        self.alpha = .7;
-    }
-    
-    if(p.state == UIGestureRecognizerStateChanged) {
-        [[ZYSuspensionManager shared] windowForKey:self.md5Key].center = CGPointMake(panPoint.x, panPoint.y);
+    }else if(p.state == UIGestureRecognizerStateChanged) {
+        [ZYSuspensionManager windowForKey:self.md5Key].center = CGPointMake(panPoint.x, panPoint.y);
     }else if(p.state == UIGestureRecognizerStateEnded
              || p.state == UIGestureRecognizerStateCancelled) {
+        self.alpha = .7;
         
         CGFloat touchWidth = self.frame.size.width;
         CGFloat touchHeight = self.frame.size.height;
@@ -95,7 +92,7 @@
         }
         
         [UIView animateWithDuration:.25 animations:^{
-            [[ZYSuspensionManager shared] windowForKey:self.md5Key].center = newCenter;
+            [ZYSuspensionManager windowForKey:self.md5Key].center = newCenter;
         }];
     }else{
         NSLog(@"pan state : %zd", p.state);
@@ -121,7 +118,7 @@
     backWindow.rootViewController = [[UIViewController alloc] init];
     [backWindow makeKeyAndVisible];
     //持有window
-    [[ZYSuspensionManager shared] saveWindow:backWindow forKey:self.md5Key];
+    [ZYSuspensionManager saveWindow:backWindow forKey:self.md5Key];
 
     self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     self.layer.cornerRadius = self.frame.size.width / 2.0;
@@ -137,7 +134,7 @@
 
 - (void)removeFromScreen
 {
-    [[ZYSuspensionManager shared] destroyWindowForKey:self.md5Key newKeyWindow:nil];
+    [ZYSuspensionManager destroyWindowForKey:self.md5Key];
 }
 
 @end

@@ -48,34 +48,31 @@ static ZYSuspensionManager *_instance;
 
 #pragma mark - public methods
 
-- (UIWindow *)windowForKey:(NSString *)key
++ (UIWindow *)windowForKey:(NSString *)key
 {
-    return [self.windowDic objectForKey:key];
+    return [[ZYSuspensionManager shared].windowDic objectForKey:key];
 }
 
-- (void)saveWindow:(UIWindow *)window forKey:(NSString *)key
++ (void)saveWindow:(UIWindow *)window forKey:(NSString *)key
 {
-    [self.windowDic setObject:window forKey:key];
+    [[ZYSuspensionManager shared].windowDic setObject:window forKey:key];
 }
 
-- (void)destroyWindowForKey:(NSString *)key newKeyWindow:(UIWindow *)newWindow
++ (void)destroyWindowForKey:(NSString *)key
 {
-    UIWindow *window = [self.windowDic objectForKey:key];
+    UIWindow *window = [[ZYSuspensionManager shared].windowDic objectForKey:key];
     window.hidden = YES;
     window.rootViewController = nil;
-    [self.windowDic removeObjectForKey:key];
-    if (newWindow) {
-        [newWindow makeKeyAndVisible];
-    }
+    [[ZYSuspensionManager shared].windowDic removeObjectForKey:key];
 }
 
-- (void)destroyAllWindow
++ (void)destroyAllWindow
 {
-    for (UIWindow *window in self.windowDic.allValues) {
+    for (UIWindow *window in [ZYSuspensionManager shared].windowDic.allValues) {
         window.hidden = YES;
         window.rootViewController = nil;
     }
-    [self.windowDic removeAllObjects];
+    [[ZYSuspensionManager shared].windowDic removeAllObjects];
     [[UIApplication sharedApplication].delegate.window makeKeyAndVisible];
 }
 

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ZYSuspensionView.h"
+#import "ZYTestManager.h"
 
 @interface ViewController ()<ZYSuspensionViewDelegate>
 
@@ -19,15 +20,41 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    
+    /** ********** 测试用例1: 悬浮球配合测试工具使用 ********** */
+    
+    [self suspensionViewWithTestManagerExample];
+    
+    
+    
+    
+    /** ********** 测试用例2: 仅仅创建一个悬浮球 ********** */
+    
+    [self suspensionViewExample];
+}
 
-    ZYSuspensionView *sus = [ZYSuspensionView defaultSuspensionViewWithDelegate:self];
-    [sus setTitle:@"测试" forState:UIControlStateNormal];
-    [sus show];
+- (void)suspensionViewWithTestManagerExample
+{
+    // ZYTestManager 所有方法，在 release 模式下自动屏蔽，发布上线不会受到影响
     
+    // 显示一个默认的悬浮球
+    [ZYTestManager showSuspensionView];
     
+    // 添加一个测试条目 (注意blcok的引用问题，如果需要在block中使用self，最好传入__weak)
+    [ZYTestManager addTestItemWithTitle:@"new item" action:^{
+        NSLog(@"new item : do something ~~~~~~~~~~");
+    }];
+    
+    [ZYTestManager addTestItemWithTitle:@"new item2" action:^{
+        NSLog(@"new item2 : do something ~~~~~~~~~~");
+    }];
+}
+
+- (void)suspensionViewExample
+{
+    // 仅仅创建一个悬浮球，自行实现点击的代理方法
     
     UIColor *color = [UIColor colorWithRed:0.50f green:0.89f blue:0.31f alpha:1.00f];
-    
     ZYSuspensionView *sus2 = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(0, 200, 50, 50)
                                                                color:color
                                                             delegate:self];
@@ -36,10 +63,11 @@
     [sus2 show];
 }
 
-#pragma mark - SuspensionViewDelegate
+
+#pragma mark - ZYSuspensionViewDelegate
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
 {
-    NSLog(@"%@ 点击事件",suspensionView.titleLabel.text);
+    NSLog(@"click %@",suspensionView.titleLabel.text);
 }
 
 

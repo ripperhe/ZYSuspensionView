@@ -1,0 +1,142 @@
+//
+//  ZYTestTableViewController.m
+//  ZYSuspensionView
+//
+//  Created by ripper on 2016/12/9.
+//  Copyright © 2016年 ripper. All rights reserved.
+//
+
+#import "ZYTestTableViewController.h"
+#import "ZYTestManager.h"
+#import "ZYSuspensionManager.h"
+
+@interface ZYTestTableViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) UIView *backView;
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataSourceArray;
+
+@end
+
+@implementation ZYTestTableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.7];
+    [self backView];
+    [self tableView];
+    [self addAlertAnimation];
+}
+
+- (UIView *)backView
+{
+    if (!_backView) {
+        UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTestTableController)];
+        UIView *backView = [[UIView alloc] initWithFrame:self.view.bounds];
+        backView.userInteractionEnabled = YES;
+        [backView addGestureRecognizer:tgr];
+        [self.view addSubview:backView];
+        _backView = backView;
+    }
+    return _backView;
+}
+
+- (UITableView *)tableView
+{
+    if (!_tableView) {
+        CGRect frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 20 * 2, [UIScreen mainScreen].bounds.size.height - 150);
+        UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+        tableView.layer.cornerRadius = 2;
+        tableView.clipsToBounds = YES;
+        [self.view addSubview:tableView];
+        _tableView = tableView;
+        
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.text = @"Test Items";
+        titleLabel.font = [UIFont systemFontOfSize:20];
+        self.tableView.tableHeaderView = titleLabel;
+    
+    }
+    return _tableView;
+}
+
+- (NSMutableArray *)dataSourceArray
+{
+    if (!_dataSourceArray) {
+        _dataSourceArray = [NSMutableArray array];
+        
+        NSArray *baseArray = @[
+                               @{
+                                   @"title":@"item1",
+                                   @"action":^{
+                                       NSLog(@"click item1 : do something ~~~~~");
+                                   }
+                                   },
+                               @{
+                                   @"title":@"item2",
+                                   @"action":^{
+                                       NSLog(@"click item2 : do something ~~~~~");
+                                   }
+                                   },
+                               ];
+        [_dataSourceArray addObjectsFromArray:baseArray];
+        
+        for (NSString *title in [ZYTestManager shareInstance].testItemDic.allKeys) {
+            NSDictionary *dic = @{
+                                  @"title":title,
+                                  @"action":[ZYTestManager shareInstance].testItemDic[title]
+                                  };
+            [_dataSourceArray insertObject:dic atIndex:0];
+        }
+    }
+    return _dataSourceArray;
+}
+
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSourceArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    NSDictionary *item = self.dataSourceArray[indexPath.row];
+    // Configure the cell...
+    cell.textLabel.text = item[@"title"];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *item = self.dataSourceArray[indexPath.row];
+    ((void(^)())item[@"action"])();
+    [self closeTestTableController];
+}
+
+#pragma mark - private methods
+- (void)closeTestTableController
+{
+    [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
+}
+
+- (void)addAlertAnimation
+{
+    CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    bounceAnimation.values = [NSArray arrayWithObjects:
+                              [NSNumber numberWithFloat:0.9],
+                              [NSNumber numberWithFloat:1.1],
+                              [NSNumber numberWithFloat:0.9],
+                              [NSNumber numberWithFloat:1.0], nil];
+    bounceAnimation.duration = 0.3;
+    bounceAnimation.removedOnCompletion = NO;
+    [self.tableView.layer addAnimation:bounceAnimation forKey:nil];
+}
+
+@end
