@@ -20,6 +20,11 @@
 
 @implementation ZYTestTableViewController
 
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

@@ -10,6 +10,18 @@
 #import "NSObject+ZYSuspensionView.h"
 #import "ZYSuspensionManager.h"
 
+@interface ZYSuspensionViewController : UIViewController
+
+@end
+
+@implementation ZYSuspensionViewController
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
+@end
 
 @implementation ZYSuspensionView
 
@@ -114,9 +126,8 @@
     
     UIWindow *backWindow = [[UIWindow alloc] initWithFrame:self.frame];
     backWindow.windowLevel = UIWindowLevelAlert * 2;
-    backWindow.rootViewController = [[UIViewController alloc] init];
+    backWindow.rootViewController = [[ZYSuspensionViewController alloc] init];
     [backWindow makeKeyAndVisible];
-    //持有window
     [ZYSuspensionManager saveWindow:backWindow forKey:self.md5Key];
 
     self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
@@ -124,10 +135,9 @@
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.borderWidth = 1.0;
     self.clipsToBounds = YES;
-    
     [backWindow addSubview:self];
     
-    //保持原先的keyWindow，避免一些不必要的问题
+    // 保持原先的keyWindow，避免一些不必要的问题
     [currentKeyWindow makeKeyWindow];
 }
 
