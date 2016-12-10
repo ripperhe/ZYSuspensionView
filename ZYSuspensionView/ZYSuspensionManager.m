@@ -22,7 +22,10 @@ static ZYSuspensionManager *_instance;
 + (instancetype)shared
 {
     if (!_instance) {
-        _instance = [[self alloc] init];
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _instance = [[self alloc] init];
+        });
     }
     return _instance;
 }

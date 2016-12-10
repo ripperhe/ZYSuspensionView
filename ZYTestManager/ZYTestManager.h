@@ -14,9 +14,9 @@
 @property (nonatomic, strong, readonly) NSMutableDictionary *testItemDic;
 
 /**
- 单利对象
+ 单例对象
 
- @return 单利对象
+ @return 单例对象
  */
 + (instancetype)shareInstance;
 
