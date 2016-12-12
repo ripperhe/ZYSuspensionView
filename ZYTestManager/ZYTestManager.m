@@ -11,12 +11,18 @@
 #import "ZYSuspensionManager.h"
 #import "ZYTestTableViewController.h"
 
+NSString *const kTestTitleKey = @"title";
+NSString *const kTestAutoCloseKey = @"autoClose";
+NSString *const kTestActionKey = @"action";
+
 @interface ZYTestManager ()<ZYSuspensionViewDelegate>
 
 /** 长期存在的测试条目 */
 @property (nonatomic, strong) NSArray <NSDictionary *>*testItemPermanentArray;
 /** 新增的测试条目 */
 @property (nonatomic, strong) NSMutableDictionary *testItemDic;
+/** 显示测试条目的控制器 */
+@property (nonatomic, weak, nullable) UIViewController *testTableViewController;
 
 @end
 
@@ -71,32 +77,40 @@ static ZYTestManager *_instance;
 #endif
 }
 
-+ (void)addTestItemWithTitle:(NSString *)title action:(void(^)())action
++ (void)addTestItemWithTitle:(NSString *)title autoClose:(BOOL)autoClose action:(void(^)())action
 {
 #if DEBUG
     if (title.length == 0 || !action) {
         return;
     }
-    [[ZYTestManager shareInstance].testItemDic setObject:action forKey:title];
+    NSDictionary *dic = @{
+                          kTestAutoCloseKey: @(autoClose),
+                          kTestActionKey: action
+                          };
+    [[ZYTestManager shareInstance].testItemDic setObject:dic forKey:title];
 #endif
 }
 
 #pragma mark - ZYSuspensionViewDelegate
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
-{    
+{
+#if DEBUG
     if ([ZYSuspensionManager windowForKey:kZYTestTableControllerKey]) {
         [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
+        [ZYTestManager shareInstance].testTableViewController = nil;
     }else{
         
         UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
-        ZYTestTableViewController *testTableView = [[ZYTestTableViewController alloc] init];
+        ZYTestTableViewController *testTableViewVC = [[ZYTestTableViewController alloc] init];
         UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        window.rootViewController = testTableView;
+        window.rootViewController = testTableViewVC;
         window.windowLevel = UIWindowLevelAlert * 2 - 1;
         [window makeKeyAndVisible];
         [ZYSuspensionManager saveWindow:window forKey:kZYTestTableControllerKey];
         [currentKeyWindow makeKeyWindow];
+        [ZYTestManager shareInstance].testTableViewController = testTableViewVC;
     }
+#endif
 }
 
 @end

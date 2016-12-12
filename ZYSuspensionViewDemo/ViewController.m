@@ -44,14 +44,16 @@
     // 设置常驻的测试条目
     NSArray *baseArray = @[
                            @{
-                               @"title":@"item1",
-                               @"action":^{
+                               kTestTitleKey: @"item1",
+                               kTestAutoCloseKey: @YES,
+                               kTestActionKey: ^{
                                    NSLog(@"click item1 : do something ~~~~~");
                                }
                                },
                            @{
-                               @"title":@"item2",
-                               @"action":^{
+                               kTestTitleKey:@"item2",
+                               kTestAutoCloseKey: @NO,
+                               kTestActionKey:^{
                                    NSLog(@"click item2 : do something ~~~~~");
                                }
                                },
@@ -61,12 +63,18 @@
 
     
     // 添加一个测试条目 (注意blcok的引用问题，如果需要在block中使用self，最好传入__weak)
-    [ZYTestManager addTestItemWithTitle:@"new item" action:^{
-        NSLog(@"new item : do something ~~~~~~~~~~");
+    [ZYTestManager addTestItemWithTitle:@"new item" autoClose:YES action:^{
+        NSLog(@"click new item : do something ~~~~~~~~~~");
     }];
     
-    [ZYTestManager addTestItemWithTitle:@"new item2" action:^{
-        NSLog(@"new item2 : do something ~~~~~~~~~~");
+    [ZYTestManager addTestItemWithTitle:@"new item2" autoClose:NO action:^{
+        NSLog(@"click new item2 : do something ~~~~~~~~~~");
+        
+        Class VCClass = NSClassFromString(@"SomeViewController");
+        if (VCClass && [VCClass isSubclassOfClass:[UIViewController class]]) {
+            UIViewController *vc = [VCClass new];
+            [[ZYTestManager shareInstance].testTableViewController presentViewController:vc animated:YES completion:nil];
+        }
     }];
 }
 

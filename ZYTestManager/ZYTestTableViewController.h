@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *kZYTestTableControllerKey = @"kZYTestTableControllerKey";
+static NSString *const kZYTestTableControllerKey = @"kZYTestTableControllerKey";
 
 @interface ZYTestTableViewController : UIViewController
 

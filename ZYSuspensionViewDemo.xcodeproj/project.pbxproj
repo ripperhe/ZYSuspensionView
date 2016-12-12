@@ -15,6 +15,7 @@
 		C94F39DC1D769874006DAA6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */; };
 		C94F39E71D769874006DAA6B /* ZYSuspensionViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39E61D769874006DAA6B /* ZYSuspensionViewDemoTests.m */; };
 		C94F39F21D769874006DAA6B /* ZYSuspensionViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */; };
+		C960189D1DFE94BF00E9A144 /* SomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C960189C1DFE94BF00E9A144 /* SomeViewController.m */; };
 		C98C56761DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56711DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m */; };
 		C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56731DFA8DB2000D5460 /* ZYSuspensionManager.m */; };
 		C98C56781DFA8DB2000D5460 /* ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56751DFA8DB2000D5460 /* ZYSuspensionView.m */; };
@@ -56,6 +57,8 @@
 		C94F39ED1D769874006DAA6B /* ZYSuspensionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionViewDemoUITests.m; sourceTree = "<group>"; };
 		C94F39F31D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C960189B1DFE94BF00E9A144 /* SomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeViewController.h; sourceTree = "<group>"; };
+		C960189C1DFE94BF00E9A144 /* SomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomeViewController.m; sourceTree = "<group>"; };
 		C98C56701DFA8DB2000D5460 /* NSObject+ZYSuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZYSuspensionView.h"; sourceTree = "<group>"; };
 		C98C56711DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZYSuspensionView.m"; sourceTree = "<group>"; };
 		C98C56721DFA8DB2000D5460 /* ZYSuspensionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSuspensionManager.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				C94F39D01D769874006DAA6B /* AppDelegate.m */,
 				C94F39D21D769874006DAA6B /* ViewController.h */,
 				C94F39D31D769874006DAA6B /* ViewController.m */,
+				C960189B1DFE94BF00E9A144 /* SomeViewController.h */,
+				C960189C1DFE94BF00E9A144 /* SomeViewController.m */,
 				C94F39D51D769874006DAA6B /* Main.storyboard */,
 				C94F39D81D769874006DAA6B /* Assets.xcassets */,
 				C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */,
@@ -243,7 +248,7 @@
 		C94F39C11D769874006DAA6B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = ripper;
 				TargetAttributes = {
 					C94F39C81D769874006DAA6B = {
@@ -312,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C960189D1DFE94BF00E9A144 /* SomeViewController.m in Sources */,
 				C98C567F1DFA8E06000D5460 /* ZYTestTableViewController.m in Sources */,
 				C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */,
 				C98C56781DFA8DB2000D5460 /* ZYSuspensionView.m in Sources */,
@@ -388,8 +394,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -411,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -433,8 +441,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -450,7 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

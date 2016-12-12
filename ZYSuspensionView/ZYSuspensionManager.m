@@ -65,6 +65,9 @@ static ZYSuspensionManager *_instance;
 {
     UIWindow *window = [[ZYSuspensionManager shared].windowDic objectForKey:key];
     window.hidden = YES;
+    if (window.rootViewController.presentedViewController) {
+        [window.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    }
     window.rootViewController = nil;
     [[ZYSuspensionManager shared].windowDic removeObjectForKey:key];
 }

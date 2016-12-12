@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+UIKIT_EXTERN NSString *const kTestTitleKey;
+UIKIT_EXTERN NSString *const kTestAutoCloseKey;
+UIKIT_EXTERN NSString *const kTestActionKey;
 
 @interface ZYTestManager : NSObject
 
@@ -14,6 +19,9 @@
 @property (nonatomic, strong, readonly) NSArray <NSDictionary *>*testItemPermanentArray;
 /** 通过 @selector(addTestItemWithTitle:action:) 添加的所有测试条目 */
 @property (nonatomic, strong, readonly) NSMutableDictionary *testItemDic;
+/** 当前显示测试条目的控制器 */
+@property (nonatomic, weak, readonly) UIViewController *testTableViewController;
+
 
 /**
  单例对象
@@ -41,8 +49,9 @@
  添加测试条目
 
  @param title 标题
+ @param autoClose 点击后是否自动关闭测试列表
  @param action 行为
  */
-+ (void)addTestItemWithTitle:(NSString *)title action:(void(^)())action;
++ (void)addTestItemWithTitle:(NSString *)title autoClose:(BOOL)autoClose action:(void(^)())action;
 
 @end

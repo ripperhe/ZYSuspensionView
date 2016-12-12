@@ -25,6 +25,11 @@
     return NO;
 }
 
+- (void)dealloc
+{
+    NSLog(@"ZYTestTableViewController dealloc");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -34,6 +39,7 @@
     [self addAlertAnimation];
 }
 
+#pragma mark - getter
 - (UIView *)backView
 {
     if (!_backView) {
@@ -80,8 +86,9 @@
         
         for (NSString *title in [ZYTestManager shareInstance].testItemDic.allKeys) {
             NSDictionary *dic = @{
-                                  @"title":title,
-                                  @"action":[ZYTestManager shareInstance].testItemDic[title]
+                                  kTestTitleKey: title,
+                                  kTestAutoCloseKey: [ZYTestManager shareInstance].testItemDic[title][kTestAutoCloseKey],
+                                  kTestActionKey: [ZYTestManager shareInstance].testItemDic[title][kTestActionKey]
                                   };
             [_dataSourceArray insertObject:dic atIndex:0];
         }
@@ -100,7 +107,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     NSDictionary *item = self.dataSourceArray[indexPath.row];
     // Configure the cell...
-    cell.textLabel.text = item[@"title"];
+    cell.textLabel.text = item[kTestTitleKey];
     
     return cell;
 }
@@ -108,8 +115,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *item = self.dataSourceArray[indexPath.row];
-    ((void(^)())item[@"action"])();
-    [self closeTestTableController];
+    ((void(^)())item[kTestActionKey])();
+    BOOL autoClose = [item[kTestAutoCloseKey] boolValue];
+    if (autoClose) {
+        [self closeTestTableController];
+    }
 }
 
 #pragma mark - private methods
