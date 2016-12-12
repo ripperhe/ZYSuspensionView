@@ -10,6 +10,7 @@
 #import "ZYSuspensionView.h"
 #import "ZYSuspensionManager.h"
 #import "ZYTestTableViewController.h"
+#import <UIKit/UIKit.h>
 
 NSString *const kTestTitleKey = @"title";
 NSString *const kTestAutoCloseKey = @"autoClose";

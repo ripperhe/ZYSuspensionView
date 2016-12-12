@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+@class UIViewController;
 
-UIKIT_EXTERN NSString *const kTestTitleKey;
-UIKIT_EXTERN NSString *const kTestAutoCloseKey;
-UIKIT_EXTERN NSString *const kTestActionKey;
+extern NSString *const kTestTitleKey;
+extern NSString *const kTestAutoCloseKey;
+extern NSString *const kTestActionKey;
 
 @interface ZYTestManager : NSObject
 
