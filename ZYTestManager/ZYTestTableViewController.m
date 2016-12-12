@@ -74,21 +74,9 @@
     if (!_dataSourceArray) {
         _dataSourceArray = [NSMutableArray array];
         
-        NSArray *baseArray = @[
-                               @{
-                                   @"title":@"item1",
-                                   @"action":^{
-                                       NSLog(@"click item1 : do something ~~~~~");
-                                   }
-                                   },
-                               @{
-                                   @"title":@"item2",
-                                   @"action":^{
-                                       NSLog(@"click item2 : do something ~~~~~");
-                                   }
-                                   },
-                               ];
-        [_dataSourceArray addObjectsFromArray:baseArray];
+        if ([ZYTestManager shareInstance].testItemPermanentArray) {
+            [_dataSourceArray addObjectsFromArray:[ZYTestManager shareInstance].testItemPermanentArray];
+        }
         
         for (NSString *title in [ZYTestManager shareInstance].testItemDic.allKeys) {
             NSDictionary *dic = @{

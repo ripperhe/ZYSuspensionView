@@ -13,6 +13,9 @@
 
 @interface ZYTestManager ()<ZYSuspensionViewDelegate>
 
+/** 长期存在的测试条目 */
+@property (nonatomic, strong) NSArray <NSDictionary *>*testItemPermanentArray;
+/** 新增的测试条目 */
 @property (nonatomic, strong) NSMutableDictionary *testItemDic;
 
 @end
@@ -61,6 +64,13 @@ static ZYTestManager *_instance;
 #endif
 }
 
++ (void)setupTestItemPermanentArray:(NSArray <NSDictionary *>*)array
+{
+#if DEBUG
+    [ZYTestManager shareInstance].testItemPermanentArray = array;
+#endif
+}
+
 + (void)addTestItemWithTitle:(NSString *)title action:(void(^)())action
 {
 #if DEBUG
@@ -73,9 +83,7 @@ static ZYTestManager *_instance;
 
 #pragma mark - ZYSuspensionViewDelegate
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
-{
-    NSLog(@"click %@",suspensionView.titleLabel.text);
-    
+{    
     if ([ZYSuspensionManager windowForKey:kZYTestTableControllerKey]) {
         [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
     }else{
@@ -90,8 +98,5 @@ static ZYTestManager *_instance;
         [currentKeyWindow makeKeyWindow];
     }
 }
-
-
-
 
 @end

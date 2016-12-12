@@ -33,12 +33,32 @@
     [self suspensionViewExample];
 }
 
+#pragma mark - 悬浮球 + 测试组件
 - (void)suspensionViewWithTestManagerExample
 {
     // ZYTestManager 所有方法，在 release 模式下自动屏蔽，发布上线不会受到影响
     
     // 显示一个默认的悬浮球
     [ZYTestManager showSuspensionView];
+    
+    // 设置常驻的测试条目
+    NSArray *baseArray = @[
+                           @{
+                               @"title":@"item1",
+                               @"action":^{
+                                   NSLog(@"click item1 : do something ~~~~~");
+                               }
+                               },
+                           @{
+                               @"title":@"item2",
+                               @"action":^{
+                                   NSLog(@"click item2 : do something ~~~~~");
+                               }
+                               },
+                           ];
+    
+    [ZYTestManager setupTestItemPermanentArray:baseArray];
+
     
     // 添加一个测试条目 (注意blcok的引用问题，如果需要在block中使用self，最好传入__weak)
     [ZYTestManager addTestItemWithTitle:@"new item" action:^{
@@ -50,6 +70,7 @@
     }];
 }
 
+#pragma mark - 悬浮球
 - (void)suspensionViewExample
 {
     // 仅仅创建一个悬浮球，自行实现点击的代理方法

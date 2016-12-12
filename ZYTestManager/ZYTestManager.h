@@ -10,6 +10,8 @@
 
 @interface ZYTestManager : NSObject
 
+/** 通过 @selector(setupTestItemPermanentArray:) 设置的长期存在的测试条目 */
+@property (nonatomic, strong, readonly) NSArray <NSDictionary *>*testItemPermanentArray;
 /** 通过 @selector(addTestItemWithTitle:action:) 添加的所有测试条目 */
 @property (nonatomic, strong, readonly) NSMutableDictionary *testItemDic;
 
@@ -25,6 +27,15 @@
  显示测试按钮 release模式自动不显示
  */
 + (void)showSuspensionView;
+
+
+/**
+ 设置常驻的测试条目（如果长期需要使用，可以用该方法统一设置）
+
+ @param array 所有常驻的测试条目
+ */
++ (void)setupTestItemPermanentArray:(NSArray <NSDictionary *>*)array;
+
 
 /**
  添加测试条目
