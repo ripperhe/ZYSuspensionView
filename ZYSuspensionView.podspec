@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   # s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = '8.0'
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -94,16 +94,14 @@ Pod::Spec.new do |s|
   # s.source_files  = "Classes", "Classes/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
-  s.source_files = 'ZYSuspensionView/**/*'
+  s.subspec 'SuspensionView' do | su |
+      su.source_files = 'ZYSuspensionView/**/*'
+  end
 
-  # s.subspec 'SuspensionView' do | su |
-  #     su.source_files = 'ZYSuspensionView/**/*'
-  # end
-
-  # s.subspec 'TestManager' do | tm |
-  #     tm.source_files = 'ZYTestManager/**/*'
-  #     tm.dependency 'ZYSuspensionView/SuspensionView'
-  # end
+  s.subspec 'TestManager' do | tm |
+      tm.source_files = 'ZYTestManager/**/*'
+      tm.dependency 'ZYSuspensionView/SuspensionView'
+  end
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -128,7 +126,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  s.framework  = "UIKit"
+  s.frameworks = 'UIKit'
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
