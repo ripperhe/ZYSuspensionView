@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   "悬浮球组件，外加测试功能"
                    DESC
 
-  s.homepage     = "https://github.com/ripperhe/ZYSegmentView"
+  s.homepage     = "https://github.com/ripperhe/ZYSuspensionView"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ripperhe/ZYSegmentView.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/ripperhe/ZYSuspensionView.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -94,14 +94,16 @@ Pod::Spec.new do |s|
   # s.source_files  = "Classes", "Classes/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
-  s.subspec 'SuspensionView' do | su |
-      sn.source_files = 'ZYSuspensionView/ZYSuspensionView'
-  end
+  s.source_files = 'ZYSuspensionView/**/*'
 
-  s.subspec 'TestManager' do | tm |
-      st.source_files = 'ZYSuspensionView/ZYTestManager'
-      sn.dependency 'ZYSuspensionView/ZYSuspensionView'
-  end
+  # s.subspec 'SuspensionView' do | su |
+  #     su.source_files = 'ZYSuspensionView/**/*'
+  # end
+
+  # s.subspec 'TestManager' do | tm |
+  #     tm.source_files = 'ZYTestManager/**/*'
+  #     tm.dependency 'ZYSuspensionView/SuspensionView'
+  # end
 
   # s.public_header_files = "Classes/**/*.h"
 
