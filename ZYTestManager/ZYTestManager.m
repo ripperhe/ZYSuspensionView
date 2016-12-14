@@ -92,6 +92,14 @@ static ZYTestManager *_instance;
 #endif
 }
 
++ (void)closeTestTableViewController
+{
+#if DEBUG
+    [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
+    [ZYTestManager shareInstance].testTableViewController = nil;
+#endif
+}
+
 #pragma mark - ZYSuspensionViewDelegate
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
 {

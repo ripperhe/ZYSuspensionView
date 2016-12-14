@@ -30,12 +30,10 @@ extern NSString *const kTestActionKey;
  */
 + (instancetype)shareInstance;
 
-
 /**
  显示测试按钮 release模式自动不显示
  */
 + (void)showSuspensionView;
-
 
 /**
  设置常驻的测试条目（如果长期需要使用，可以用该方法统一设置）
@@ -43,7 +41,6 @@ extern NSString *const kTestActionKey;
  @param array 所有常驻的测试条目
  */
 + (void)setupTestItemPermanentArray:(NSArray <NSDictionary *>*)array;
-
 
 /**
  添加测试条目
@@ -53,5 +50,11 @@ extern NSString *const kTestActionKey;
  @param action 行为
  */
 + (void)addTestItemWithTitle:(NSString *)title autoClose:(BOOL)autoClose action:(void(^)())action;
+
+/**
+ 关闭测试条目列表
+ */
++ (void)closeTestTableViewController;
+
 
 @end
