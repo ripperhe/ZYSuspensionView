@@ -13,14 +13,14 @@
 		C94F39D71D769874006DAA6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39D51D769874006DAA6B /* Main.storyboard */; };
 		C94F39D91D769874006DAA6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94F39D81D769874006DAA6B /* Assets.xcassets */; };
 		C94F39DC1D769874006DAA6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */; };
-		C94F39E71D769874006DAA6B /* ZYSuspensionViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39E61D769874006DAA6B /* ZYSuspensionViewDemoTests.m */; };
-		C94F39F21D769874006DAA6B /* ZYSuspensionViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */; };
-		C960189D1DFE94BF00E9A144 /* SomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C960189C1DFE94BF00E9A144 /* SomeViewController.m */; };
 		C98C56761DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56711DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m */; };
 		C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56731DFA8DB2000D5460 /* ZYSuspensionManager.m */; };
 		C98C56781DFA8DB2000D5460 /* ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56751DFA8DB2000D5460 /* ZYSuspensionView.m */; };
 		C98C567E1DFA8E06000D5460 /* ZYTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C567B1DFA8E06000D5460 /* ZYTestManager.m */; };
 		C98C567F1DFA8E06000D5460 /* ZYTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C567D1DFA8E06000D5460 /* ZYTestTableViewController.m */; };
+		C9FF0BF41E6E333900B92778 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF0BF31E6E333900B92778 /* ViewController1.m */; };
+		C9FF0BF71E6E339500B92778 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF0BF61E6E339500B92778 /* ViewController2.m */; };
+		C9FF0BFA1E6E357100B92778 /* SomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FF0BF91E6E357100B92778 /* SomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +52,7 @@
 		C94F39DB1D769874006DAA6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C94F39DD1D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C94F39E21D769874006DAA6B /* ZYSuspensionViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C94F39E61D769874006DAA6B /* ZYSuspensionViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionViewDemoTests.m; sourceTree = "<group>"; };
-		C94F39E81D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C94F39ED1D769874006DAA6B /* ZYSuspensionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYSuspensionViewDemoUITests.m; sourceTree = "<group>"; };
-		C94F39F31D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C960189B1DFE94BF00E9A144 /* SomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeViewController.h; sourceTree = "<group>"; };
-		C960189C1DFE94BF00E9A144 /* SomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomeViewController.m; sourceTree = "<group>"; };
 		C98C56701DFA8DB2000D5460 /* NSObject+ZYSuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZYSuspensionView.h"; sourceTree = "<group>"; };
 		C98C56711DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZYSuspensionView.m"; sourceTree = "<group>"; };
 		C98C56721DFA8DB2000D5460 /* ZYSuspensionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSuspensionManager.h; sourceTree = "<group>"; };
@@ -69,6 +63,12 @@
 		C98C567B1DFA8E06000D5460 /* ZYTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTestManager.m; sourceTree = "<group>"; };
 		C98C567C1DFA8E06000D5460 /* ZYTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTestTableViewController.h; sourceTree = "<group>"; };
 		C98C567D1DFA8E06000D5460 /* ZYTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTestTableViewController.m; sourceTree = "<group>"; };
+		C9FF0BF21E6E333900B92778 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
+		C9FF0BF31E6E333900B92778 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
+		C9FF0BF51E6E339500B92778 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		C9FF0BF61E6E339500B92778 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		C9FF0BF81E6E357100B92778 /* SomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeViewController.h; sourceTree = "<group>"; };
+		C9FF0BF91E6E357100B92778 /* SomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +102,6 @@
 				C98C566F1DFA8DB2000D5460 /* ZYSuspensionView */,
 				C98C56791DFA8E06000D5460 /* ZYTestManager */,
 				C94F39CB1D769874006DAA6B /* ZYSuspensionViewDemo */,
-				C94F39E51D769874006DAA6B /* ZYSuspensionViewDemoTests */,
-				C94F39F01D769874006DAA6B /* ZYSuspensionViewDemoUITests */,
 				C94F39CA1D769874006DAA6B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,12 +119,11 @@
 		C94F39CB1D769874006DAA6B /* ZYSuspensionViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C9FF0BEF1E6E331C00B92778 /* Example */,
 				C94F39CF1D769874006DAA6B /* AppDelegate.h */,
 				C94F39D01D769874006DAA6B /* AppDelegate.m */,
 				C94F39D21D769874006DAA6B /* ViewController.h */,
 				C94F39D31D769874006DAA6B /* ViewController.m */,
-				C960189B1DFE94BF00E9A144 /* SomeViewController.h */,
-				C960189C1DFE94BF00E9A144 /* SomeViewController.m */,
 				C94F39D51D769874006DAA6B /* Main.storyboard */,
 				C94F39D81D769874006DAA6B /* Assets.xcassets */,
 				C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */,
@@ -142,24 +139,6 @@
 				C94F39CD1D769874006DAA6B /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C94F39E51D769874006DAA6B /* ZYSuspensionViewDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				C94F39E61D769874006DAA6B /* ZYSuspensionViewDemoTests.m */,
-				C94F39E81D769874006DAA6B /* Info.plist */,
-			);
-			path = ZYSuspensionViewDemoTests;
-			sourceTree = "<group>";
-		};
-		C94F39F01D769874006DAA6B /* ZYSuspensionViewDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C94F39F11D769874006DAA6B /* ZYSuspensionViewDemoUITests.m */,
-				C94F39F31D769874006DAA6B /* Info.plist */,
-			);
-			path = ZYSuspensionViewDemoUITests;
 			sourceTree = "<group>";
 		};
 		C98C566F1DFA8DB2000D5460 /* ZYSuspensionView */ = {
@@ -184,6 +163,35 @@
 				C98C567D1DFA8E06000D5460 /* ZYTestTableViewController.m */,
 			);
 			path = ZYTestManager;
+			sourceTree = "<group>";
+		};
+		C9FF0BEF1E6E331C00B92778 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF0BF01E6E331C00B92778 /* SuspensionView */,
+				C9FF0BF11E6E331C00B92778 /* TestManager */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		C9FF0BF01E6E331C00B92778 /* SuspensionView */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF0BF21E6E333900B92778 /* ViewController1.h */,
+				C9FF0BF31E6E333900B92778 /* ViewController1.m */,
+			);
+			path = SuspensionView;
+			sourceTree = "<group>";
+		};
+		C9FF0BF11E6E331C00B92778 /* TestManager */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF0BF51E6E339500B92778 /* ViewController2.h */,
+				C9FF0BF61E6E339500B92778 /* ViewController2.m */,
+				C9FF0BF81E6E357100B92778 /* SomeViewController.h */,
+				C9FF0BF91E6E357100B92778 /* SomeViewController.m */,
+			);
+			path = TestManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,8 +325,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C960189D1DFE94BF00E9A144 /* SomeViewController.m in Sources */,
+				C9FF0BF41E6E333900B92778 /* ViewController1.m in Sources */,
+				C9FF0BFA1E6E357100B92778 /* SomeViewController.m in Sources */,
 				C98C567F1DFA8E06000D5460 /* ZYTestTableViewController.m in Sources */,
+				C9FF0BF71E6E339500B92778 /* ViewController2.m in Sources */,
 				C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */,
 				C98C56781DFA8DB2000D5460 /* ZYSuspensionView.m in Sources */,
 				C98C56761DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m in Sources */,
@@ -333,7 +343,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C94F39E71D769874006DAA6B /* ZYSuspensionViewDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +350,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C94F39F21D769874006DAA6B /* ZYSuspensionViewDemoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

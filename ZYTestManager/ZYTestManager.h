@@ -2,6 +2,7 @@
 //  ZYTestManager.h
 //  ZYSuspensionView
 //
+//  GitHub https://github.com/ripperhe
 //  Created by ripper on 2016/12/9.
 //  Copyright © 2016年 ripper. All rights reserved.
 //
@@ -34,6 +35,11 @@ extern NSString *const kTestActionKey;
  显示测试按钮 release模式自动不显示
  */
 + (void)showSuspensionView;
+
+/**
+ 移除测试按钮
+ */
++ (void)removeSuspensionView;
 
 /**
  设置常驻的测试条目（如果长期需要使用，可以用该方法统一设置）

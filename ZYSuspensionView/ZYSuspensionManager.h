@@ -2,6 +2,7 @@
 //  ZYSuspensionManager.h
 //  ZYSuspensionView
 //
+//  GitHub https://github.com/ripperhe
 //  Created by ripper on 16/7/19.
 //  Copyright © 2016年 ripper. All rights reserved.
 //

@@ -2,6 +2,7 @@
 //  ZYTestManager.m
 //  ZYSuspensionView
 //
+//  GitHub https://github.com/ripperhe
 //  Created by ripper on 2016/12/9.
 //  Copyright © 2016年 ripper. All rights reserved.
 //
@@ -18,6 +19,8 @@ NSString *const kTestActionKey = @"action";
 
 @interface ZYTestManager ()<ZYSuspensionViewDelegate>
 
+/** SuspensionView */
+@property (nonatomic, weak) ZYSuspensionView *susView;
 /** 长期存在的测试条目 */
 @property (nonatomic, strong) NSArray <NSDictionary *>*testItemPermanentArray;
 /** 新增的测试条目 */
@@ -66,8 +69,16 @@ static ZYTestManager *_instance;
 {
 #if DEBUG
     ZYSuspensionView *sus = [ZYSuspensionView defaultSuspensionViewWithDelegate:[ZYTestManager shareInstance]];
-    [sus setTitle:@"测试" forState:UIControlStateNormal];
+    [sus setTitle:@"TEST" forState:UIControlStateNormal];
     [sus show];
+    [ZYTestManager shareInstance].susView = sus;
+#endif
+}
+
++ (void)removeSuspensionView
+{
+#if DEBUG
+    [[ZYTestManager shareInstance].susView removeFromScreen];
 #endif
 }
 

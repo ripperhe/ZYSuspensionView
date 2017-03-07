@@ -2,6 +2,7 @@
 //  ZYSuspensionView.m
 //  ZYSuspensionView
 //
+//  GitHub https://github.com/ripperhe
 //  Created by ripper on 16-02-25.
 //  Copyright (c) 2016年 ripper. All rights reserved.
 //
