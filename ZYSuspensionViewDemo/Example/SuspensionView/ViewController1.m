@@ -30,13 +30,14 @@
     self.title = @"SuspensionView";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    // 仅仅创建一个悬浮球，自行实现点击的代理方法
-    UIColor *color = [UIColor colorWithRed:0.50f green:0.89f blue:0.31f alpha:1.00f];
+    // Just create a ZYSuspensionView
+//    UIColor *color = [UIColor colorWithRed:0.50f green:0.89f blue:0.31f alpha:1.00f];
+    UIColor *color = [UIColor colorWithRed:0.97 green:0.30 blue:0.30 alpha:1.00];
     ZYSuspensionView *susView = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(- 50.0 / 6, 200, 50, 50)
                                                                color:color
                                                             delegate:self];
     susView.leanType = ZYSuspensionViewLeanTypeEachSide;
-    [susView setTitle:@"测试" forState:UIControlStateNormal];
+    [susView setTitle:@"JSUT" forState:UIControlStateNormal];
     [susView show];
     self.susView = susView;
 }

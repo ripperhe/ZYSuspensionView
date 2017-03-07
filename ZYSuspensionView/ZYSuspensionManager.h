@@ -15,7 +15,7 @@
 + (instancetype)shared;
 
 /**
- *  根据key值取window
+ *  Get UIWindow based on key value
  *
  *  @param key key
  *
@@ -24,22 +24,22 @@
 + (UIWindow *)windowForKey:(NSString *)key;
 
 /**
- *  持有一个window并设置key值
+ *  Save a window and set the key
  *
  *  @param window window
- *  @param key    key值
+ *  @param key    key
  */
 + (void)saveWindow:(UIWindow *)window forKey:(NSString *)key;
 
 /**
- *  销毁一个window
+ *  Destroy a window according to key
  *
- *  @param key       根据key值
+ *  @param key       key
  */
 + (void)destroyWindowForKey:(NSString *)key;
 
 /**
- *  销毁当前所有window
+ *  Destroy all window
  */
 + (void)destroyAllWindow;
 

@@ -12,23 +12,23 @@
 @class ZYSuspensionView;
 
 @protocol ZYSuspensionViewDelegate <NSObject>
-/** 点击悬浮球的回调 */
+/** callback for click on the ZYSuspensionView */
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView;
 @end
 
 typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
-    /** 仅可停留在左、右 */
+    /** Can only stay in the left and right */
     ZYSuspensionViewLeanTypeHorizontal,
-    /** 可停留在上、下、左、右 */
+    /** Can stay in the upper, lower, left, right */
     ZYSuspensionViewLeanTypeEachSide
 };
 
 
 @interface ZYSuspensionView : UIButton
 
-/** 代理 */
+/** delegate */
 @property (nonatomic, weak) id<ZYSuspensionViewDelegate> delegate;
-/** 倚靠类型 default is ZYSuspensionViewLeanTypeHorizontal */
+/** lean type, default is ZYSuspensionViewLeanTypeHorizontal */
 @property (nonatomic, assign) ZYSuspensionViewLeanType leanType;
 
 
@@ -37,12 +37,12 @@ typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
 - (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color delegate:(id<ZYSuspensionViewDelegate>)delegate;
 
 /**
- *  显示
+ *  show
  */
 - (void)show;
 
 /**
- *  移除
+ *  remove add dealloc
  */
 - (void)removeFromScreen;
 

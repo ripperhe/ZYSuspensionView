@@ -11,12 +11,12 @@
 @interface NSObject (ZYSuspensionView)
 
 /**
- *  懒加载的md5Key
+ *  Lazy loading MD5 string
  */
 @property (nonatomic, copy, readonly) NSString *md5Key;
 
 /**
- *  根据当前description生成md5值
+ *  Generate MD5 values based on current description
  */
 - (NSString *)getCurrentMd5Key;
 

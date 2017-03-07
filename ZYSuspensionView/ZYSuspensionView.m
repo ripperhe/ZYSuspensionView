@@ -85,7 +85,7 @@
         CGPoint newCenter;
         CGFloat targetY = 0;
         
-        //校正Y
+        //Correcting Y
         if (panPoint.y < 15 + touchHeight / 2.0) {
             targetY = 15 + touchHeight / 2.0;
         }else if (panPoint.y > (screenHeight - touchHeight / 2.0 - 15)) {
@@ -138,7 +138,7 @@
     self.clipsToBounds = YES;
     [backWindow addSubview:self];
     
-    // 保持原先的keyWindow，避免一些不必要的问题
+    // Keep the original keyWindow and avoid some unpredictable problems
     [currentKeyWindow makeKeyWindow];
 }
 

@@ -16,49 +16,49 @@ extern NSString *const kTestActionKey;
 
 @interface ZYTestManager : NSObject
 
-/** 通过 @selector(setupTestItemPermanentArray:) 设置的长期存在的测试条目 */
+/** Permanent test items set by @selector(setupTestItemPermanentArray:) */
 @property (nonatomic, strong, readonly) NSArray <NSDictionary *>*testItemPermanentArray;
-/** 通过 @selector(addTestItemWithTitle:action:) 添加的所有测试条目 */
+/** Test items set by @selector(addTestItemWithTitle:action:) */
 @property (nonatomic, strong, readonly) NSMutableDictionary *testItemDic;
-/** 当前显示测试条目的控制器 */
+/** Controller for displaying test items */
 @property (nonatomic, weak, readonly) UIViewController *testTableViewController;
 
 
 /**
- 单例对象
+ Get single object
 
- @return 单例对象
+ @return single object
  */
 + (instancetype)shareInstance;
 
 /**
- 显示测试按钮 release模式自动不显示
+ Display test suspensionView (release mode won't show)
  */
 + (void)showSuspensionView;
 
 /**
- 移除测试按钮
+ Remove test suspensionView
  */
 + (void)removeSuspensionView;
 
 /**
- 设置常驻的测试条目（如果长期需要使用，可以用该方法统一设置）
+ Set ermanent test items（If you need to use it for a long time, it is recommended to use this method）
 
- @param array 所有常驻的测试条目
+ @param array Permanent test items
  */
 + (void)setupTestItemPermanentArray:(NSArray <NSDictionary *>*)array;
 
 /**
- 添加测试条目
+ Add a single test item
 
- @param title 标题
- @param autoClose 点击后是否自动关闭测试列表
- @param action 行为
+ @param title title
+ @param autoClose if automatically close test list after clicking
+ @param action action after click
  */
 + (void)addTestItemWithTitle:(NSString *)title autoClose:(BOOL)autoClose action:(void(^)())action;
 
 /**
- 关闭测试条目列表
+ Close test list
  */
 + (void)closeTestTableViewController;
 

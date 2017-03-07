@@ -13,6 +13,7 @@
 		C94F39D71D769874006DAA6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39D51D769874006DAA6B /* Main.storyboard */; };
 		C94F39D91D769874006DAA6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94F39D81D769874006DAA6B /* Assets.xcassets */; };
 		C94F39DC1D769874006DAA6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */; };
+		C964AA0E1E6E49090018F2AA /* TestManagerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */; };
 		C98C56761DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56711DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m */; };
 		C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56731DFA8DB2000D5460 /* ZYSuspensionManager.m */; };
 		C98C56781DFA8DB2000D5460 /* ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56751DFA8DB2000D5460 /* ZYSuspensionView.m */; };
@@ -53,6 +54,8 @@
 		C94F39DD1D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C94F39E21D769874006DAA6B /* ZYSuspensionViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F39ED1D769874006DAA6B /* ZYSuspensionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C964AA0C1E6E49090018F2AA /* TestManagerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManagerConfig.h; sourceTree = "<group>"; };
+		C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestManagerConfig.m; sourceTree = "<group>"; };
 		C98C56701DFA8DB2000D5460 /* NSObject+ZYSuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZYSuspensionView.h"; sourceTree = "<group>"; };
 		C98C56711DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZYSuspensionView.m"; sourceTree = "<group>"; };
 		C98C56721DFA8DB2000D5460 /* ZYSuspensionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSuspensionManager.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 			children = (
 				C9FF0BF51E6E339500B92778 /* ViewController2.h */,
 				C9FF0BF61E6E339500B92778 /* ViewController2.m */,
+				C964AA0C1E6E49090018F2AA /* TestManagerConfig.h */,
+				C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */,
 				C9FF0BF81E6E357100B92778 /* SomeViewController.h */,
 				C9FF0BF91E6E357100B92778 /* SomeViewController.m */,
 			);
@@ -336,6 +341,7 @@
 				C94F39D11D769874006DAA6B /* AppDelegate.m in Sources */,
 				C98C567E1DFA8E06000D5460 /* ZYTestManager.m in Sources */,
 				C94F39CE1D769874006DAA6B /* main.m in Sources */,
+				C964AA0E1E6E49090018F2AA /* TestManagerConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

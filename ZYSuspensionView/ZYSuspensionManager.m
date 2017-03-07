@@ -11,7 +11,7 @@
 
 @interface ZYSuspensionManager ()
 
-/** 持有window的字典 */
+/** save windows dictionary */
 @property (nonatomic, strong) NSMutableDictionary *windowDic;
 
 @end

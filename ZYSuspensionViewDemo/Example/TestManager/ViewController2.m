@@ -9,6 +9,7 @@
 
 #import "ViewController2.h"
 #import "ZYTestManager.h"
+#import "TestManagerConfig.h"
 
 @interface ViewController2 ()
 
@@ -28,39 +29,12 @@
     self.title = @"TestManager";
     self.view.backgroundColor = [UIColor whiteColor];
 
-    [self suspensionViewWithTestManagerExample];
-}
-
-#pragma mark - 悬浮球 + 测试组件
-- (void)suspensionViewWithTestManagerExample
-{
-    // ZYTestManager 所有方法，在 release 模式下自动屏蔽，发布上线不会受到影响
     
-    // 显示一个默认的悬浮球
-    [ZYTestManager showSuspensionView];
-    
-    // 设置常驻的测试条目
-    NSArray *baseArray = @[
-                           @{
-                               kTestTitleKey: @"item1",
-                               kTestAutoCloseKey: @YES,
-                               kTestActionKey: ^{
-                                   NSLog(@"click item1 : do something ~~~~~");
-                               }
-                               },
-                           @{
-                               kTestTitleKey:@"item2",
-                               kTestAutoCloseKey: @NO,
-                               kTestActionKey:^{
-                                   NSLog(@"click item2 : do something ~~~~~");
-                               }
-                               },
-                           ];
-    
-    [ZYTestManager setupTestItemPermanentArray:baseArray];
+    // This code is usually written in AppDelegate's @selector(application:didFinishLaunchingWithOptions:)
+    [TestManagerConfig setupTestManager];
     
     
-    // 添加一个测试条目 (注意blcok的引用问题，如果需要在block中使用self，最好传入__weak)
+    // Add a test item (note the blcok reference problem, and if you need to use self in block, it is best to use __weak)
     [ZYTestManager addTestItemWithTitle:@"new item" autoClose:YES action:^{
         NSLog(@"click new item : do something ~~~~~~~~~~");
     }];

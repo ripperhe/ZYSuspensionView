@@ -19,13 +19,9 @@ NSString *const kTestActionKey = @"action";
 
 @interface ZYTestManager ()<ZYSuspensionViewDelegate>
 
-/** SuspensionView */
 @property (nonatomic, weak) ZYSuspensionView *susView;
-/** 长期存在的测试条目 */
 @property (nonatomic, strong) NSArray <NSDictionary *>*testItemPermanentArray;
-/** 新增的测试条目 */
 @property (nonatomic, strong) NSMutableDictionary *testItemDic;
-/** 显示测试条目的控制器 */
 @property (nonatomic, weak, nullable) UIViewController *testTableViewController;
 
 @end
@@ -68,6 +64,9 @@ static ZYTestManager *_instance;
 + (void)showSuspensionView
 {
 #if DEBUG
+    if ([ZYTestManager shareInstance].susView) {
+        [[ZYTestManager shareInstance].susView removeFromScreen];
+    }
     ZYSuspensionView *sus = [ZYSuspensionView defaultSuspensionViewWithDelegate:[ZYTestManager shareInstance]];
     [sus setTitle:@"TEST" forState:UIControlStateNormal];
     [sus show];
