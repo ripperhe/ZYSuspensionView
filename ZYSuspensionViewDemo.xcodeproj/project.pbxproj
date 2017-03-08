@@ -131,10 +131,10 @@
 		C92342451E6EE4C0005F01EF /* LoginManager */ = {
 			isa = PBXGroup;
 			children = (
-				C923424F1E6EF9FF005F01EF /* LoginManagerConfig.h */,
-				C92342501E6EF9FF005F01EF /* LoginManagerConfig.m */,
 				C923424C1E6EF9E2005F01EF /* ViewController3.h */,
 				C923424D1E6EF9E2005F01EF /* ViewController3.m */,
+				C923424F1E6EF9FF005F01EF /* LoginManagerConfig.h */,
+				C92342501E6EF9FF005F01EF /* LoginManagerConfig.m */,
 				C959B1E21E6FA22D009C74E8 /* LoginViewController.h */,
 				C959B1E31E6FA22D009C74E8 /* LoginViewController.m */,
 				C959B1E51E6FA239009C74E8 /* LogoutViewController.h */,
@@ -235,10 +235,10 @@
 		C9FF0BF11E6E331C00B92778 /* TestManager */ = {
 			isa = PBXGroup;
 			children = (
-				C964AA0C1E6E49090018F2AA /* TestManagerConfig.h */,
-				C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */,
 				C9FF0BF51E6E339500B92778 /* ViewController2.h */,
 				C9FF0BF61E6E339500B92778 /* ViewController2.m */,
+				C964AA0C1E6E49090018F2AA /* TestManagerConfig.h */,
+				C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */,
 				C9FF0BF81E6E357100B92778 /* SomeViewController.h */,
 				C9FF0BF91E6E357100B92778 /* SomeViewController.m */,
 			);
