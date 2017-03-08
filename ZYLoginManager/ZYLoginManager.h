@@ -10,15 +10,23 @@
 #import <UIKit/UIKit.h>
 @class ZYLoginManager;
 
+/** The notification name for login success, send the account information by the notification, notification.object is a dictionary, the key is account and the value is password */
 extern NSString *const kZYLoginSuccessNotificationKey;
+/** The notification name for logout success */
 extern NSString *const kZYLogoutSuccessNotificationKey;
 
 @protocol ZYLoginManagerDelegate <NSObject>
 
+/**
+ Tell login manager how to login.This method must be implemented.
+
+ @param loginManager login manager instance
+ @param account account
+ @param password password
+ */
 - (void)loginManager:(ZYLoginManager *)loginManager loginWithAccout:(NSString *)account password:(NSString *)password;
 
 @end
-
 
 
 @interface ZYLoginManager : NSObject
@@ -27,6 +35,7 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
 
 /** Permanent account infos set by @selector(setupTestItemPermanentArray:) */
 @property (nonatomic, strong, readonly) NSDictionary <NSString *, NSString *>*permanentAccountInfoDic;
+/** New login account */
 @property (readonly) NSDictionary <NSString *, NSString *>*newAccountInfoDic;
 /** Controller for displaying account infos */
 @property (nonatomic, weak, readonly) UIViewController *loginTableViewController;
@@ -39,15 +48,14 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
 + (instancetype)shareInstance;
 
 /**
- Display test suspensionView (release mode won't show)
+ Display login suspensionView (release mode won't show)
  */
 + (void)showSuspensionView;
 
 /**
- Remove test suspensionView
+ Remove login suspensionView
  */
 + (void)removeSuspensionView;
-
 
 /**
  Set permanent account infos
@@ -57,12 +65,32 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
  */
 + (void)setupPermanentAccountInfoDic:(NSDictionary <NSString *, NSString *>*)infoDic;
 
+/**
+ Remove login suspensionView, and save account info
+
+ @param account account string
+ @param password password string
+ */
 + (void)removeSuspensionViewAndAddAccount:(NSString *)account password:(NSString *)password;
 
+/**
+ Close login table view
+ */
 + (void)closeLoginTableViewController;
 
+/**
+ Get account infos' plist path
+
+ @return path
+ */
 + (NSString *)accountInfoPlistPath;
 
+/**
+ Get current viewController for one window
+
+ @param window target window
+ @return current viewController
+ */
 + (UIViewController *)currentViewControllerWithWindow:(UIWindow *)window;
 
 @end

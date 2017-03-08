@@ -59,7 +59,29 @@ static ZYTestManager *_instance;
     return _newTestItemDic;
 }
 
-#pragma mark - API 
+#pragma mark - ZYSuspensionViewDelegate
+- (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
+{
+#if DEBUG
+    if ([ZYSuspensionManager windowForKey:kZYTestTableControllerKey]) {
+        [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
+        [ZYTestManager shareInstance].testTableViewController = nil;
+    }else{
+        
+        UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
+        ZYTestTableViewController *testTableViewVC = [[ZYTestTableViewController alloc] init];
+        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        window.rootViewController = testTableViewVC;
+        window.windowLevel = UIWindowLevelAlert * 2 - 1;
+        [window makeKeyAndVisible];
+        [ZYSuspensionManager saveWindow:window forKey:kZYTestTableControllerKey];
+        [currentKeyWindow makeKeyWindow];
+        [ZYTestManager shareInstance].testTableViewController = testTableViewVC;
+    }
+#endif
+}
+
+#pragma mark - API
 + (void)showSuspensionView
 {
 #if DEBUG
@@ -106,28 +128,6 @@ static ZYTestManager *_instance;
 #if DEBUG
     [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
     [ZYTestManager shareInstance].testTableViewController = nil;
-#endif
-}
-
-#pragma mark - ZYSuspensionViewDelegate
-- (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
-{
-#if DEBUG
-    if ([ZYSuspensionManager windowForKey:kZYTestTableControllerKey]) {
-        [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
-        [ZYTestManager shareInstance].testTableViewController = nil;
-    }else{
-        
-        UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
-        ZYTestTableViewController *testTableViewVC = [[ZYTestTableViewController alloc] init];
-        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        window.rootViewController = testTableViewVC;
-        window.windowLevel = UIWindowLevelAlert * 2 - 1;
-        [window makeKeyAndVisible];
-        [ZYSuspensionManager saveWindow:window forKey:kZYTestTableControllerKey];
-        [currentKeyWindow makeKeyWindow];
-        [ZYTestManager shareInstance].testTableViewController = testTableViewVC;
-    }
 #endif
 }
 

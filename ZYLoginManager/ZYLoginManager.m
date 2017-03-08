@@ -56,6 +56,54 @@ static ZYLoginManager *_instance;
     return accountDic;
 }
 
+
+#pragma mark - event response
+- (void)loginSuccessNoti:(NSNotification *)noti
+{
+#if DEBUG
+    [ZYLoginManager removeSuspensionView];
+    NSObject *obj = noti.object;
+    if ([obj isKindOfClass:[NSDictionary class]]) {
+        if (((NSDictionary *)obj).allKeys.count > 0) {
+            NSString *account = ((NSDictionary *)obj).allKeys.firstObject;
+            NSString *password = [((NSDictionary *)obj) objectForKey:account];
+            if (password.length) {
+                [ZYLoginManager saveAccount:account password:password];
+            }
+        }
+    }
+#endif
+}
+
+- (void)logoutSuccessNoti:(NSNotification *)noti
+{
+#if DEBUG
+    [ZYLoginManager showSuspensionView];
+#endif
+}
+
+#pragma mark - ZYSuspensionViewDelegate
+- (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
+{
+#if DEBUG
+    if ([ZYSuspensionManager windowForKey:kZYLoginTableControllerKey]) {
+        [ZYSuspensionManager destroyWindowForKey:kZYLoginTableControllerKey];
+        [ZYLoginManager shareInstance].loginTableViewController = nil;
+    }else{
+        
+        UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
+        ZYLoginTableViewController *loginTableViewVC = [[ZYLoginTableViewController alloc] init];
+        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        window.rootViewController = loginTableViewVC;
+        window.windowLevel = UIWindowLevelAlert * 2 - 1;
+        [window makeKeyAndVisible];
+        [ZYSuspensionManager saveWindow:window forKey:kZYLoginTableControllerKey];
+        [currentKeyWindow makeKeyWindow];
+        [ZYLoginManager shareInstance].loginTableViewController = loginTableViewVC;
+    }
+#endif
+}
+
 #pragma mark - private methods
 + (void)saveAccount:(NSString *)account password:(NSString *)password
 {
@@ -111,31 +159,6 @@ static ZYLoginManager *_instance;
         return vc;
         
     }
-}
-
-#pragma mark - event response
-- (void)loginSuccessNoti:(NSNotification *)noti
-{
-#if DEBUG
-    [ZYLoginManager removeSuspensionView];
-    NSObject *obj = noti.object;
-    if ([obj isKindOfClass:[NSDictionary class]]) {
-        if (((NSDictionary *)obj).allKeys.count > 0) {
-            NSString *account = ((NSDictionary *)obj).allKeys.firstObject;
-            NSString *password = [((NSDictionary *)obj) objectForKey:account];
-            if (password.length) {
-                [ZYLoginManager saveAccount:account password:password];
-            }
-        }
-    }
-#endif
-}
-
-- (void)logoutSuccessNoti:(NSNotification *)noti
-{
-#if DEBUG
-    [ZYLoginManager showSuspensionView];
-#endif
 }
 
 #pragma mark - API
@@ -203,26 +226,5 @@ static ZYLoginManager *_instance;
     return [self findBestViewController:viewController];
 }
 
-#pragma mark - ZYSuspensionViewDelegate
-- (void)suspensionViewClick:(ZYSuspensionView *)suspensionView
-{
-#if DEBUG
-    if ([ZYSuspensionManager windowForKey:kZYLoginTableControllerKey]) {
-        [ZYSuspensionManager destroyWindowForKey:kZYLoginTableControllerKey];
-        [ZYLoginManager shareInstance].loginTableViewController = nil;
-    }else{
-        
-        UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
-        ZYLoginTableViewController *loginTableViewVC = [[ZYLoginTableViewController alloc] init];
-        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        window.rootViewController = loginTableViewVC;
-        window.windowLevel = UIWindowLevelAlert * 2 - 1;
-        [window makeKeyAndVisible];
-        [ZYSuspensionManager saveWindow:window forKey:kZYLoginTableControllerKey];
-        [currentKeyWindow makeKeyWindow];
-        [ZYLoginManager shareInstance].loginTableViewController = loginTableViewVC;
-    }
-#endif
-}
 
 @end

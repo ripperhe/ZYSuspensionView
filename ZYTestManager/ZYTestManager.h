@@ -9,9 +9,9 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const kTestTitleKey;
-extern NSString *const kTestAutoCloseKey;
-extern NSString *const kTestActionKey;
+extern NSString *const kTestTitleKey; /** The key for title */
+extern NSString *const kTestAutoCloseKey; /** This determines whether to close the table automatically */
+extern NSString *const kTestActionKey; /** The key for action */
 
 @interface ZYTestManager : NSObject
 

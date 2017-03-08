@@ -59,19 +59,28 @@ static LoginManagerConfig *_instance;
     
     if (VC3Class && [currentVC isKindOfClass:VC3Class]) {
         
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
         [currentVC performSelector:@selector(goToTestLogin:) withObject:nil];
+#pragma clang diagnostic pop
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             UIViewController *vc = [ZYLoginManager currentViewControllerWithWindow:nil];
             if ([vc isKindOfClass:LoginVCClass]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
                 [vc performSelector:@selector(sendLoginRequestWithAccount:password:) withObject:account withObject:password];
+#pragma clang diagnostic pop
             }
         });
         
     }else if (LoginVCClass && [currentVC isKindOfClass:LoginVCClass]) {
         
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
         [currentVC performSelector:@selector(sendLoginRequestWithAccount:password:) withObject:account withObject:password];
-        
+#pragma clang diagnostic pop
+
     }else{
         NSLog(@"can't login at here.");
     }

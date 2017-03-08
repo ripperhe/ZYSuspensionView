@@ -32,8 +32,23 @@ typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
 @property (nonatomic, assign) ZYSuspensionViewLeanType leanType;
 
 
+/**
+ Create a default susView
+
+ @param delegate delegate for susView
+ @return obj
+ */
 + (instancetype)defaultSuspensionViewWithDelegate:(id<ZYSuspensionViewDelegate>)delegate;
 
+
+/**
+ Create a susView
+
+ @param frame frame
+ @param color background color
+ @param delegate delegate for susView
+ @return obj
+ */
 - (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color delegate:(id<ZYSuspensionViewDelegate>)delegate;
 
 /**

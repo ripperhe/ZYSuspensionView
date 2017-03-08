@@ -44,7 +44,7 @@
         self.alpha = .7;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
         
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(changeLocation:)];
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePanGesture:)];
         pan.delaysTouchesBegan = YES;
         [self addGestureRecognizer:pan];
         [self addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
@@ -53,7 +53,7 @@
 }
 
 #pragma mark - event response
-- (void)changeLocation:(UIPanGestureRecognizer*)p
+- (void)handlePanGesture:(UIPanGestureRecognizer*)p
 {
     UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
     CGPoint panPoint = [p locationInView:appWindow];
