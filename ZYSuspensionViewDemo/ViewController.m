@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ViewController1.h"
 #import "ViewController2.h"
+#import "ViewController3.h"
 
 @interface ViewController ()
 
@@ -38,6 +39,12 @@
                                  @"action":^{
                                      ViewController2 *vc2 = [ViewController2 new];
                                      [weakSelf.navigationController pushViewController:vc2 animated:YES];
+                                 }},
+                             @{
+                                 @"title":@"LoginManager",
+                                 @"action":^{
+                                     ViewController3 *vc3 = [ViewController3 new];
+                                     [weakSelf.navigationController pushViewController:vc3 animated:YES];
                                  }},
                              ];
 }

@@ -8,10 +8,9 @@
 //
 
 #import "ZYTestManager.h"
-#import "ZYSuspensionView.h"
 #import "ZYSuspensionManager.h"
+#import "ZYSuspensionView.h"
 #import "ZYTestTableViewController.h"
-#import <UIKit/UIKit.h>
 
 NSString *const kTestTitleKey = @"title";
 NSString *const kTestAutoCloseKey = @"autoClose";
@@ -20,8 +19,8 @@ NSString *const kTestActionKey = @"action";
 @interface ZYTestManager ()<ZYSuspensionViewDelegate>
 
 @property (nonatomic, weak) ZYSuspensionView *susView;
-@property (nonatomic, strong) NSArray <NSDictionary *>*testItemPermanentArray;
-@property (nonatomic, strong) NSMutableDictionary *testItemDic;
+@property (nonatomic, strong) NSArray <NSDictionary *>*permanentTestItemArray;
+@property (nonatomic, strong) NSMutableDictionary  <NSString *, NSDictionary *>*newTestItemDic;
 @property (nonatomic, weak, nullable) UIViewController *testTableViewController;
 
 @end
@@ -52,12 +51,12 @@ static ZYTestManager *_instance;
 }
 
 #pragma mark - getter
-- (NSMutableDictionary *)testItemDic
+- (NSMutableDictionary *)newTestItemDic
 {
-    if (!_testItemDic) {
-        _testItemDic = [NSMutableDictionary dictionary];
+    if (!_newTestItemDic) {
+        _newTestItemDic = [NSMutableDictionary dictionary];
     }
-    return _testItemDic;
+    return _newTestItemDic;
 }
 
 #pragma mark - API 
@@ -81,10 +80,10 @@ static ZYTestManager *_instance;
 #endif
 }
 
-+ (void)setupTestItemPermanentArray:(NSArray <NSDictionary *>*)array
++ (void)setupPermanentTestItemArray:(NSArray <NSDictionary *>*)array
 {
 #if DEBUG
-    [ZYTestManager shareInstance].testItemPermanentArray = array;
+    [ZYTestManager shareInstance].permanentTestItemArray = array;
 #endif
 }
 
@@ -98,7 +97,7 @@ static ZYTestManager *_instance;
                           kTestAutoCloseKey: @(autoClose),
                           kTestActionKey: action
                           };
-    [[ZYTestManager shareInstance].testItemDic setObject:dic forKey:title];
+    [[ZYTestManager shareInstance].newTestItemDic setObject:dic forKey:title];
 #endif
 }
 

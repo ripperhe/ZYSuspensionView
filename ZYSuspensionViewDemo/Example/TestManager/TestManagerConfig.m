@@ -35,7 +35,7 @@
                                },
                            ];
     
-    [ZYTestManager setupTestItemPermanentArray:baseArray];
+    [ZYTestManager setupPermanentTestItemArray:baseArray];
 }
 
 #pragma mark - frequently action example

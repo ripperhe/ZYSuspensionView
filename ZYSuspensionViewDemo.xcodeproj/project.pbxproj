@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92342481E6EE550005F01EF /* ZYLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92342471E6EE550005F01EF /* ZYLoginManager.m */; };
+		C923424B1E6EE5F3005F01EF /* ZYLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C923424A1E6EE5F3005F01EF /* ZYLoginTableViewController.m */; };
+		C923424E1E6EF9E2005F01EF /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = C923424D1E6EF9E2005F01EF /* ViewController3.m */; };
+		C92342511E6EF9FF005F01EF /* LoginManagerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C92342501E6EF9FF005F01EF /* LoginManagerConfig.m */; };
 		C94F39CE1D769874006DAA6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39CD1D769874006DAA6B /* main.m */; };
 		C94F39D11D769874006DAA6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39D01D769874006DAA6B /* AppDelegate.m */; };
 		C94F39D41D769874006DAA6B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F39D31D769874006DAA6B /* ViewController.m */; };
@@ -42,6 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C92342461E6EE550005F01EF /* ZYLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLoginManager.h; sourceTree = "<group>"; };
+		C92342471E6EE550005F01EF /* ZYLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLoginManager.m; sourceTree = "<group>"; };
+		C92342491E6EE5F3005F01EF /* ZYLoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLoginTableViewController.h; sourceTree = "<group>"; };
+		C923424A1E6EE5F3005F01EF /* ZYLoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLoginTableViewController.m; sourceTree = "<group>"; };
+		C923424C1E6EF9E2005F01EF /* ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController3.h; sourceTree = "<group>"; };
+		C923424D1E6EF9E2005F01EF /* ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
+		C923424F1E6EF9FF005F01EF /* LoginManagerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManagerConfig.h; sourceTree = "<group>"; };
+		C92342501E6EF9FF005F01EF /* LoginManagerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManagerConfig.m; sourceTree = "<group>"; };
 		C94F39C91D769874006DAA6B /* ZYSuspensionViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSuspensionViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F39CD1D769874006DAA6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C94F39CF1D769874006DAA6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,11 +111,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92342441E6EE49F005F01EF /* ZYLoginManager */ = {
+			isa = PBXGroup;
+			children = (
+				C92342461E6EE550005F01EF /* ZYLoginManager.h */,
+				C92342471E6EE550005F01EF /* ZYLoginManager.m */,
+				C92342491E6EE5F3005F01EF /* ZYLoginTableViewController.h */,
+				C923424A1E6EE5F3005F01EF /* ZYLoginTableViewController.m */,
+			);
+			path = ZYLoginManager;
+			sourceTree = "<group>";
+		};
+		C92342451E6EE4C0005F01EF /* LoginManager */ = {
+			isa = PBXGroup;
+			children = (
+				C923424C1E6EF9E2005F01EF /* ViewController3.h */,
+				C923424D1E6EF9E2005F01EF /* ViewController3.m */,
+				C923424F1E6EF9FF005F01EF /* LoginManagerConfig.h */,
+				C92342501E6EF9FF005F01EF /* LoginManagerConfig.m */,
+			);
+			path = LoginManager;
+			sourceTree = "<group>";
+		};
 		C94F39C01D769874006DAA6B = {
 			isa = PBXGroup;
 			children = (
 				C98C566F1DFA8DB2000D5460 /* ZYSuspensionView */,
 				C98C56791DFA8E06000D5460 /* ZYTestManager */,
+				C92342441E6EE49F005F01EF /* ZYLoginManager */,
 				C94F39CB1D769874006DAA6B /* ZYSuspensionViewDemo */,
 				C94F39CA1D769874006DAA6B /* Products */,
 			);
@@ -173,6 +208,7 @@
 			children = (
 				C9FF0BF01E6E331C00B92778 /* SuspensionView */,
 				C9FF0BF11E6E331C00B92778 /* TestManager */,
+				C92342451E6EE4C0005F01EF /* LoginManager */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -331,17 +367,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9FF0BF41E6E333900B92778 /* ViewController1.m in Sources */,
+				C92342481E6EE550005F01EF /* ZYLoginManager.m in Sources */,
 				C9FF0BFA1E6E357100B92778 /* SomeViewController.m in Sources */,
 				C98C567F1DFA8E06000D5460 /* ZYTestTableViewController.m in Sources */,
 				C9FF0BF71E6E339500B92778 /* ViewController2.m in Sources */,
 				C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */,
 				C98C56781DFA8DB2000D5460 /* ZYSuspensionView.m in Sources */,
 				C98C56761DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m in Sources */,
+				C923424B1E6EE5F3005F01EF /* ZYLoginTableViewController.m in Sources */,
+				C92342511E6EF9FF005F01EF /* LoginManagerConfig.m in Sources */,
 				C94F39D41D769874006DAA6B /* ViewController.m in Sources */,
 				C94F39D11D769874006DAA6B /* AppDelegate.m in Sources */,
 				C98C567E1DFA8E06000D5460 /* ZYTestManager.m in Sources */,
 				C94F39CE1D769874006DAA6B /* main.m in Sources */,
 				C964AA0E1E6E49090018F2AA /* TestManagerConfig.m in Sources */,
+				C923424E1E6EF9E2005F01EF /* ViewController3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

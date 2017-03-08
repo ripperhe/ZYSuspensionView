@@ -7,8 +7,7 @@
 //  Copyright © 2016年 ripper. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-@class UIViewController;
+#import <UIKit/UIKit.h>
 
 extern NSString *const kTestTitleKey;
 extern NSString *const kTestAutoCloseKey;
@@ -17,9 +16,9 @@ extern NSString *const kTestActionKey;
 @interface ZYTestManager : NSObject
 
 /** Permanent test items set by @selector(setupTestItemPermanentArray:) */
-@property (nonatomic, strong, readonly) NSArray <NSDictionary *>*testItemPermanentArray;
+@property (nonatomic, strong, readonly) NSArray <NSDictionary *>*permanentTestItemArray;
 /** Test items set by @selector(addTestItemWithTitle:action:) */
-@property (nonatomic, strong, readonly) NSMutableDictionary *testItemDic;
+@property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSDictionary *>*newTestItemDic;
 /** Controller for displaying test items */
 @property (nonatomic, weak, readonly) UIViewController *testTableViewController;
 
@@ -42,11 +41,12 @@ extern NSString *const kTestActionKey;
 + (void)removeSuspensionView;
 
 /**
- Set ermanent test items（If you need to use it for a long time, it is recommended to use this method）
-
+ Set permanent test items
+ 
  @param array Permanent test items
+ @note If you need to use it for a long time, it is recommended to use this method
  */
-+ (void)setupTestItemPermanentArray:(NSArray <NSDictionary *>*)array;
++ (void)setupPermanentTestItemArray:(NSArray <NSDictionary *>*)array;
 
 /**
  Add a single test item

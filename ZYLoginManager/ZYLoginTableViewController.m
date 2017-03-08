@@ -1,17 +1,21 @@
 //
-//  ZYTestTableViewController.m
-//  ZYSuspensionView
+//  ZYLoginTableViewController.m
+//  ZYSuspensionViewDemo
 //
 //  GitHub https://github.com/ripperhe
-//  Created by ripper on 2016/12/9.
-//  Copyright © 2016年 ripper. All rights reserved.
+//  Created by ripper on 2017/3/7.
+//  Copyright © 2017年 ripper. All rights reserved.
 //
 
-#import "ZYTestTableViewController.h"
-#import "ZYTestManager.h"
+#import "ZYLoginTableViewController.h"
+#import "ZYLoginManager.h"
 #import "ZYSuspensionManager.h"
 
-@interface ZYTestTableViewController ()<UITableViewDelegate, UITableViewDataSource>
+const static NSString *kAccountKey = @"kAccountKey";
+const static NSString *kPasswordKey = @"kPasswordKey";
+
+
+@interface ZYLoginTableViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) UIView *backView;
 @property (nonatomic, weak) UITableView *tableView;
@@ -19,7 +23,7 @@
 
 @end
 
-@implementation ZYTestTableViewController
+@implementation ZYLoginTableViewController
 
 - (BOOL)prefersStatusBarHidden
 {
@@ -28,7 +32,7 @@
 
 - (void)dealloc
 {
-//    NSLog(@"%@ %s", self.description, __func__);
+    //    NSLog(@"%@ %s", self.description, __func__);
 }
 
 - (void)viewDidLoad {
@@ -44,7 +48,7 @@
 - (UIView *)backView
 {
     if (!_backView) {
-        UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTestTableController)];
+        UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeLoginTableController)];
         UIView *backView = [[UIView alloc] initWithFrame:self.view.bounds];
         backView.userInteractionEnabled = YES;
         [backView addGestureRecognizer:tgr];
@@ -69,7 +73,7 @@
         
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
         titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.text = @"Test Items";
+        titleLabel.text = @"Login Accounts";
         titleLabel.font = [UIFont systemFontOfSize:20];
         _tableView.tableHeaderView = titleLabel;
     }
@@ -81,15 +85,22 @@
     if (!_dataSourceArray) {
         _dataSourceArray = [NSMutableArray array];
         
-        if ([ZYTestManager shareInstance].permanentTestItemArray) {
-            [_dataSourceArray addObjectsFromArray:[ZYTestManager shareInstance].permanentTestItemArray];
+        // 这样会导致有重复的，后续改为先合成一个字典，再为数组进行赋值
+        
+        NSDictionary *permanentDic = [ZYLoginManager shareInstance].permanentAccountInfoDic;
+        for (NSString *key in permanentDic.allKeys) {
+            NSDictionary *dic = @{
+                                  kAccountKey: key,
+                                  kPasswordKey: permanentDic[key]
+                                  };
+            [_dataSourceArray insertObject:dic atIndex:0];
         }
         
-        for (NSString *title in [ZYTestManager shareInstance].newTestItemDic.allKeys) {
+        NSDictionary *newDic = [ZYLoginManager shareInstance].newAccountInfoDic;
+        for (NSString *key in newDic.allKeys) {
             NSDictionary *dic = @{
-                                  kTestTitleKey: title,
-                                  kTestAutoCloseKey: [ZYTestManager shareInstance].newTestItemDic[title][kTestAutoCloseKey],
-                                  kTestActionKey: [ZYTestManager shareInstance].newTestItemDic[title][kTestActionKey]
+                                  kAccountKey: key,
+                                  kPasswordKey: newDic[key]
                                   };
             [_dataSourceArray insertObject:dic atIndex:0];
         }
@@ -106,27 +117,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    NSDictionary *item = self.dataSourceArray[indexPath.row];
+    NSDictionary *info = self.dataSourceArray[indexPath.row];
     // Configure the cell...
-    cell.textLabel.text = item[kTestTitleKey];
+    cell.textLabel.text = info[kAccountKey];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *item = self.dataSourceArray[indexPath.row];
-    ((void(^)())item[kTestActionKey])();
-    BOOL autoClose = [item[kTestAutoCloseKey] boolValue];
-    if (autoClose) {
-        [self closeTestTableController];
-    }
+    NSDictionary *info = self.dataSourceArray[indexPath.row];
+    [self loginWithInfoDic:info];
+    [self closeLoginTableController];
 }
 
 #pragma mark - private methods
-- (void)closeTestTableController
+- (void)closeLoginTableController
 {
-    [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
+    [ZYSuspensionManager destroyWindowForKey:kZYLoginTableControllerKey];
 }
 
 - (void)addAlertAnimation
@@ -140,6 +148,18 @@
     bounceAnimation.duration = 0.3;
     bounceAnimation.removedOnCompletion = NO;
     [self.tableView.layer addAnimation:bounceAnimation forKey:nil];
+}
+
+- (void)loginWithInfoDic:(NSDictionary *)info
+{
+    NSString *account = info[kAccountKey];
+    NSString *password = info[kPasswordKey];
+    
+    if (account.length && password.length) {
+        if ([[ZYLoginManager shareInstance].delegate respondsToSelector:@selector(loginManager:loginWithAccout:password:)]) {
+            [[ZYLoginManager shareInstance].delegate loginManager:[ZYLoginManager shareInstance] loginWithAccout:account password:password];
+        }
+    }
 }
 
 @end
