@@ -30,9 +30,8 @@
     self.title = @"LoginManager";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    // config
     [LoginManagerConfig setupLoginManager];
-    
-    // TODO: 3.代理回调是否为登录状态
 }
 
 - (IBAction)goToTestLogin:(id)sender {

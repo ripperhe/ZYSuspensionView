@@ -33,10 +33,14 @@ static LoginManagerConfig *_instance;
     // delegate (required)
     [ZYLoginManager shareInstance].delegate = [LoginManagerConfig shareInstance];
     
-    // show
-    [ZYLoginManager showSuspensionView];
+    //You should check if you are logged in, and you don't need to show this view if you have logged in.
+    BOOL isLoggedIn = NO;
+    if (!isLoggedIn) {
+        [ZYLoginManager showSuspensionView];
+    }
     
     // permanet account info
+    // beta
     NSDictionary *betaAccountDic = @{
                                  @"h1-beta":@"11111",
                                  @"h2-beta":@"22222",
@@ -46,6 +50,7 @@ static LoginManagerConfig *_instance;
                                  };
     [ZYLoginManager setupPermanentAccountInfoDic:betaAccountDic isBeta:YES];
     
+    // official
     NSDictionary *officialAccountDic = @{
                                  @"h1-official":@"11111",
                                  @"h2-official":@"22222",
@@ -107,9 +112,9 @@ static LoginManagerConfig *_instance;
 //    return v;
 //}
 
-- (BOOL)loginManagerIsGetBetaAccountInfos:(ZYLoginManager *)loginManager
-{
-    return NO;
-}
+//- (BOOL)loginManagerIsGetBetaAccountInfos:(ZYLoginManager *)loginManager
+//{
+//    return NO;
+//}
 
 @end
