@@ -43,7 +43,10 @@
         self.backgroundColor = color;
         self.alpha = .7;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
-        
+        self.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.layer.borderWidth = 1.0;
+        self.clipsToBounds = YES;
+
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePanGesture:)];
         pan.delaysTouchesBegan = YES;
         [self addGestureRecognizer:pan];
@@ -123,6 +126,8 @@
 #pragma mark - public methods
 - (void)show
 {
+    if ([ZYSuspensionManager windowForKey:self.md5Key]) return;
+    
     UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
     
     UIWindow *backWindow = [[UIWindow alloc] initWithFrame:self.frame];
@@ -133,9 +138,6 @@
 
     self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     self.layer.cornerRadius = self.frame.size.width <= self.frame.size.height ? self.frame.size.width / 2.0 : self.frame.size.height / 2.0;
-    self.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.layer.borderWidth = 1.0;
-    self.clipsToBounds = YES;
     [backWindow addSubview:self];
     
     // Keep the original keyWindow and avoid some unpredictable problems

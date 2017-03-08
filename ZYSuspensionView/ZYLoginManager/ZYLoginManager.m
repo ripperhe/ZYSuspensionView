@@ -108,6 +108,7 @@ static ZYLoginManager *_instance;
 #pragma mark - private methods
 + (void)saveAccount:(NSString *)account password:(NSString *)password
 {
+#if DEBUG
     NSMutableDictionary *accountDic = [NSDictionary dictionaryWithContentsOfFile:[self accountInfoPlistPath]].mutableCopy;
     if (!accountDic) {
         accountDic = [NSMutableDictionary dictionary];
@@ -115,6 +116,7 @@ static ZYLoginManager *_instance;
     
     [accountDic setObject:password forKey:account];
     [accountDic writeToFile:[self accountInfoPlistPath] atomically:YES];
+#endif
 }
 
 /**
@@ -176,6 +178,7 @@ static ZYLoginManager *_instance;
                                                                delegate:[ZYLoginManager shareInstance]];
     [susView setTitle:@"Login" forState:UIControlStateNormal];
     [susView show];
+
     [ZYLoginManager shareInstance].susView = susView;
 #endif
 }
