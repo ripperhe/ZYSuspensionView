@@ -105,7 +105,17 @@ const static NSString *kPasswordKey = @"kPasswordKey";
     if (!_dataSourceArray) {
         _dataSourceArray = [NSMutableArray array];
         
-        NSDictionary *permanentDic = [ZYLoginManager shareInstance].permanentAccountInfoDic;
+        BOOL isBeta = YES;
+        if ([[ZYLoginManager shareInstance].delegate respondsToSelector:@selector(loginManagerIsGetBetaAccountInfos:)]) {
+            isBeta = [[ZYLoginManager shareInstance].delegate loginManagerIsGetBetaAccountInfos:[ZYLoginManager shareInstance]];
+        }
+        NSDictionary *permanentDic = nil;
+        if (isBeta) {
+            permanentDic = [ZYLoginManager shareInstance].permanentBetaAccountInfoDic;
+        }else{
+            permanentDic = [ZYLoginManager shareInstance].permanentOfficalAccountInfoDic;
+        }
+        
         NSDictionary *newDic = [ZYLoginManager shareInstance].newAccountInfoDic;
         
         NSMutableDictionary *allAccountInfoDic = [NSMutableDictionary dictionaryWithDictionary:permanentDic];

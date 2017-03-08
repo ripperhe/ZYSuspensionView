@@ -36,6 +36,14 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
  */
 - (UIView *)loginManagerLoginTableHeaderView:(ZYLoginManager *)loginManager;
 
+/**
+ Whether to distinguish between official and beta. If yes, please tell login manager which account info to get now.
+ 
+ @param loginManager login manager instance
+ @return If yes, login manager will return beta data, otherwise return official data. Default is yes.
+ */
+- (BOOL)loginManagerIsGetBetaAccountInfos:(ZYLoginManager *)loginManager;
+
 @end
 
 
@@ -43,8 +51,10 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
 
 @property (nonatomic, weak) id<ZYLoginManagerDelegate> delegate;
 
-/** Permanent account infos set by @selector(setupTestItemPermanentArray:) */
-@property (nonatomic, strong, readonly) NSDictionary <NSString *, NSString *>*permanentAccountInfoDic;
+/** Permanent account infos for beta, set by @selector(setupTestItemPermanentArray:isBeta:) */
+@property (nonatomic, strong, readonly) NSDictionary <NSString *, NSString *>*permanentBetaAccountInfoDic;
+/** Permanent account infos for official, set by @selector(setupTestItemPermanentArray:isBeta:) */
+@property (nonatomic, strong, readonly) NSDictionary <NSString *, NSString *>*permanentOfficalAccountInfoDic;
 /** New login account */
 @property (readonly) NSDictionary <NSString *, NSString *>*newAccountInfoDic;
 /** Controller for displaying account infos */
@@ -71,9 +81,10 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
  Set permanent account infos
 
  @param infoDic key is account, value is password
+ @param isBeta If is beta account info.
  @note If you need to use it for a long time, it is recommended to use this method
  */
-+ (void)setupPermanentAccountInfoDic:(NSDictionary <NSString *, NSString *>*)infoDic;
++ (void)setupPermanentAccountInfoDic:(NSDictionary <NSString *, NSString *>*)infoDic isBeta:(BOOL)isBeta;
 
 /**
  Remove login suspensionView, and save account info
@@ -94,6 +105,12 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
  @return path
  */
 + (NSString *)accountInfoPlistPath;
+
+
+/**
+ Remove account info plist file.
+ */
++ (void)removeInfoPlist;
 
 /**
  Get current viewController for one window

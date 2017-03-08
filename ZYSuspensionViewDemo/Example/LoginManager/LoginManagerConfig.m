@@ -37,14 +37,23 @@ static LoginManagerConfig *_instance;
     [ZYLoginManager showSuspensionView];
     
     // permanet account info
-    NSDictionary *accountDic = @{
-                                 @"h1":@"11111",
-                                 @"h2":@"22222",
-                                 @"h3":@"33333",
-                                 @"h4":@"44444",
-                                 @"h5":@"55555",
+    NSDictionary *betaAccountDic = @{
+                                 @"h1-beta":@"11111",
+                                 @"h2-beta":@"22222",
+                                 @"h3-beta":@"33333",
+                                 @"h4-beta":@"44444",
+                                 @"h5-beta":@"55555",
                                  };
-    [ZYLoginManager setupPermanentAccountInfoDic:accountDic];
+    [ZYLoginManager setupPermanentAccountInfoDic:betaAccountDic isBeta:YES];
+    
+    NSDictionary *officialAccountDic = @{
+                                 @"h1-official":@"11111",
+                                 @"h2-official":@"22222",
+                                 @"h3-official":@"33333",
+                                 @"h4-official":@"44444",
+                                 @"h5-official":@"55555",
+                                 };
+    [ZYLoginManager setupPermanentAccountInfoDic:officialAccountDic isBeta:NO];
     
     // permanet account infos won't write in the sandbox
     NSLog(@"sandbox cache path : \n%@", [ZYLoginManager accountInfoPlistPath]);
@@ -98,5 +107,9 @@ static LoginManagerConfig *_instance;
 //    return v;
 //}
 
+- (BOOL)loginManagerIsGetBetaAccountInfos:(ZYLoginManager *)loginManager
+{
+    return NO;
+}
 
 @end

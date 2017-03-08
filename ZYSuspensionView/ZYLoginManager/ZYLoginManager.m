@@ -18,7 +18,8 @@ NSString *const kZYLogoutSuccessNotificationKey = @"kZYLogoutSuccessNotification
 @interface ZYLoginManager ()<ZYSuspensionViewDelegate>
 
 @property (nonatomic, weak) ZYSuspensionView *susView;
-@property (nonatomic, strong) NSDictionary <NSString *, NSString *>*permanentAccountInfoDic;
+@property (nonatomic, strong) NSDictionary <NSString *, NSString *>*permanentBetaAccountInfoDic;
+@property (nonatomic, strong) NSDictionary <NSString *, NSString *>*permanentOfficalAccountInfoDic;
 @property (nonatomic, weak) UIViewController *loginTableViewController;
 
 @end
@@ -186,10 +187,14 @@ static ZYLoginManager *_instance;
 #endif
 }
 
-+ (void)setupPermanentAccountInfoDic:(NSDictionary<NSString *,NSString *> *)infoDic
++ (void)setupPermanentAccountInfoDic:(NSDictionary<NSString *,NSString *> *)infoDic isBeta:(BOOL)isBeta
 {
 #if DEBUG
-    [ZYLoginManager shareInstance].permanentAccountInfoDic = infoDic;
+    if (isBeta) {
+        [ZYLoginManager shareInstance].permanentBetaAccountInfoDic = infoDic;
+    }else{
+        [ZYLoginManager shareInstance].permanentOfficalAccountInfoDic = infoDic;
+    }
 #endif
 }
 
@@ -214,8 +219,23 @@ static ZYLoginManager *_instance;
     // cache path
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     
-    NSString *plistPath = [cachePath stringByAppendingPathComponent:@"com.ripperhe.zyloginmanager.accounts.plist"];
+    NSString *plistPath = nil;
+    BOOL isBeta = YES;
+    if ([[ZYLoginManager shareInstance].delegate respondsToSelector:@selector(loginManagerIsGetBetaAccountInfos:)]) {
+        isBeta = [[ZYLoginManager shareInstance].delegate loginManagerIsGetBetaAccountInfos:[ZYLoginManager shareInstance]];
+    }
+    if (isBeta) {
+        plistPath = [cachePath stringByAppendingPathComponent:@"com.ripperhe.zyloginmanager.beta.plist"];
+    }else{
+        plistPath = [cachePath stringByAppendingPathComponent:@"com.ripperhe.zyloginmanager.official.plist"];
+    }
+    
     return plistPath;
+}
+
++ (void)removeInfoPlist
+{
+    [[NSFileManager defaultManager] removeItemAtPath:[self accountInfoPlistPath] error:nil];
 }
 
 + (UIViewController *)currentViewControllerWithWindow:(UIWindow *)window
