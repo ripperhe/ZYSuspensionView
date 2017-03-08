@@ -15,7 +15,6 @@
 NSString *const kZYLoginSuccessNotificationKey = @"kZYLoginSuccessNotificationKey";
 NSString *const kZYLogoutSuccessNotificationKey = @"kZYLogoutSuccessNotificationKey";
 
-
 @interface ZYLoginManager ()<ZYSuspensionViewDelegate>
 
 @property (nonatomic, weak) ZYSuspensionView *susView;
@@ -69,6 +68,50 @@ static ZYLoginManager *_instance;
     [accountDic writeToFile:[self accountInfoPlistPath] atomically:YES];
 }
 
+/**
+ code from http://stackoverflow.com/questions/24825123/get-the-current-view-controller-from-the-app-delegate%EF%BC%89
+ */
++ (UIViewController*)findBestViewController:(UIViewController*)vc
+{
+    if (vc.presentedViewController) {
+        
+        // Return presented view controller
+        return [self findBestViewController:vc.presentedViewController];
+        
+    } else if ([vc isKindOfClass:[UISplitViewController class]]) {
+        
+        // Return right hand side
+        UISplitViewController* svc = (UISplitViewController*) vc;
+        if (svc.viewControllers.count > 0)
+            return [self findBestViewController:svc.viewControllers.lastObject];
+        else
+            return vc;
+        
+    } else if ([vc isKindOfClass:[UINavigationController class]]) {
+        
+        // Return top view
+        UINavigationController* svc = (UINavigationController*) vc;
+        if (svc.viewControllers.count > 0)
+            return [self findBestViewController:svc.topViewController];
+        else
+            return vc;
+        
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        
+        // Return visible view
+        UITabBarController* svc = (UITabBarController*) vc;
+        if (svc.viewControllers.count > 0)
+            return [self findBestViewController:svc.selectedViewController];
+        else
+            return vc;
+        
+    } else {
+        
+        // Unknown view controller type, return last child view controller
+        return vc;
+        
+    }
+}
 
 #pragma mark - event response
 - (void)loginSuccessNoti:(NSNotification *)noti
@@ -150,6 +193,14 @@ static ZYLoginManager *_instance;
     
     NSString *plistPath = [cachePath stringByAppendingPathComponent:@"com.ripperhe.zyloginmanager.accounts.plist"];
     return plistPath;
+}
+
++ (UIViewController *)currentViewControllerWithWindow:(UIWindow *)window
+{
+    // Find best view controller
+    UIWindow *targetWindow = window ? window : [[[UIApplication sharedApplication] delegate] window];
+    UIViewController* viewController = targetWindow.rootViewController;
+    return [self findBestViewController:viewController];
 }
 
 #pragma mark - ZYSuspensionViewDelegate

@@ -43,7 +43,8 @@
                              @{
                                  @"title":@"LoginManager",
                                  @"action":^{
-                                     ViewController3 *vc3 = [ViewController3 new];
+                                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                                     ViewController3 *vc3 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController3"];
                                      [weakSelf.navigationController pushViewController:vc3 animated:YES];
                                  }},
                              ];

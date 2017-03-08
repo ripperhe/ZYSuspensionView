@@ -63,4 +63,6 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
 
 + (NSString *)accountInfoPlistPath;
 
++ (UIViewController *)currentViewControllerWithWindow:(UIWindow *)window;
+
 @end

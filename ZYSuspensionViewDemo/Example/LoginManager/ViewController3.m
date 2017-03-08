@@ -9,12 +9,19 @@
 
 #import "ViewController3.h"
 #import "LoginManagerConfig.h"
+#import "LoginViewController.h"
 
 @interface ViewController3 ()
 
 @end
 
 @implementation ViewController3
+
+- (void)dealloc
+{
+    // In order not to affect other demo
+    [ZYLoginManager removeSuspensionView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,14 +31,15 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [LoginManagerConfig setupLoginManager];
+    
+    // TODO: 1.代理设置tableheader 2.代理设置线上线下账号 3.代理回调是否为登录状态
 }
 
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [ZYLoginManager removeSuspensionViewAndAddAccount:@"aaaaa" password:@"bbbbb"];
+- (IBAction)goToTestLogin:(id)sender {
+    
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    LoginViewController *loginVC = [board instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
-
-
 
 @end

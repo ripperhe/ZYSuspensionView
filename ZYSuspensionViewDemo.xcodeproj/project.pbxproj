@@ -17,6 +17,8 @@
 		C94F39D71D769874006DAA6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39D51D769874006DAA6B /* Main.storyboard */; };
 		C94F39D91D769874006DAA6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94F39D81D769874006DAA6B /* Assets.xcassets */; };
 		C94F39DC1D769874006DAA6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94F39DA1D769874006DAA6B /* LaunchScreen.storyboard */; };
+		C959B1E41E6FA22D009C74E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C959B1E31E6FA22D009C74E8 /* LoginViewController.m */; };
+		C959B1E71E6FA239009C74E8 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C959B1E61E6FA239009C74E8 /* LogoutViewController.m */; };
 		C964AA0E1E6E49090018F2AA /* TestManagerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */; };
 		C98C56761DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56711DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m */; };
 		C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C56731DFA8DB2000D5460 /* ZYSuspensionManager.m */; };
@@ -66,6 +68,10 @@
 		C94F39DD1D769874006DAA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C94F39E21D769874006DAA6B /* ZYSuspensionViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F39ED1D769874006DAA6B /* ZYSuspensionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYSuspensionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C959B1E21E6FA22D009C74E8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C959B1E31E6FA22D009C74E8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C959B1E51E6FA239009C74E8 /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
+		C959B1E61E6FA239009C74E8 /* LogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutViewController.m; sourceTree = "<group>"; };
 		C964AA0C1E6E49090018F2AA /* TestManagerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManagerConfig.h; sourceTree = "<group>"; };
 		C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestManagerConfig.m; sourceTree = "<group>"; };
 		C98C56701DFA8DB2000D5460 /* NSObject+ZYSuspensionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZYSuspensionView.h"; sourceTree = "<group>"; };
@@ -125,10 +131,14 @@
 		C92342451E6EE4C0005F01EF /* LoginManager */ = {
 			isa = PBXGroup;
 			children = (
-				C923424C1E6EF9E2005F01EF /* ViewController3.h */,
-				C923424D1E6EF9E2005F01EF /* ViewController3.m */,
 				C923424F1E6EF9FF005F01EF /* LoginManagerConfig.h */,
 				C92342501E6EF9FF005F01EF /* LoginManagerConfig.m */,
+				C923424C1E6EF9E2005F01EF /* ViewController3.h */,
+				C923424D1E6EF9E2005F01EF /* ViewController3.m */,
+				C959B1E21E6FA22D009C74E8 /* LoginViewController.h */,
+				C959B1E31E6FA22D009C74E8 /* LoginViewController.m */,
+				C959B1E51E6FA239009C74E8 /* LogoutViewController.h */,
+				C959B1E61E6FA239009C74E8 /* LogoutViewController.m */,
 			);
 			path = LoginManager;
 			sourceTree = "<group>";
@@ -225,10 +235,10 @@
 		C9FF0BF11E6E331C00B92778 /* TestManager */ = {
 			isa = PBXGroup;
 			children = (
-				C9FF0BF51E6E339500B92778 /* ViewController2.h */,
-				C9FF0BF61E6E339500B92778 /* ViewController2.m */,
 				C964AA0C1E6E49090018F2AA /* TestManagerConfig.h */,
 				C964AA0D1E6E49090018F2AA /* TestManagerConfig.m */,
+				C9FF0BF51E6E339500B92778 /* ViewController2.h */,
+				C9FF0BF61E6E339500B92778 /* ViewController2.m */,
 				C9FF0BF81E6E357100B92778 /* SomeViewController.h */,
 				C9FF0BF91E6E357100B92778 /* SomeViewController.m */,
 			);
@@ -370,9 +380,11 @@
 				C92342481E6EE550005F01EF /* ZYLoginManager.m in Sources */,
 				C9FF0BFA1E6E357100B92778 /* SomeViewController.m in Sources */,
 				C98C567F1DFA8E06000D5460 /* ZYTestTableViewController.m in Sources */,
+				C959B1E71E6FA239009C74E8 /* LogoutViewController.m in Sources */,
 				C9FF0BF71E6E339500B92778 /* ViewController2.m in Sources */,
 				C98C56771DFA8DB2000D5460 /* ZYSuspensionManager.m in Sources */,
 				C98C56781DFA8DB2000D5460 /* ZYSuspensionView.m in Sources */,
+				C959B1E41E6FA22D009C74E8 /* LoginViewController.m in Sources */,
 				C98C56761DFA8DB2000D5460 /* NSObject+ZYSuspensionView.m in Sources */,
 				C923424B1E6EE5F3005F01EF /* ZYLoginTableViewController.m in Sources */,
 				C92342511E6EF9FF005F01EF /* LoginManagerConfig.m in Sources */,

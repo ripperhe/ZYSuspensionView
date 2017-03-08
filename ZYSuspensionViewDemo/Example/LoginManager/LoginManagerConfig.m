@@ -42,22 +42,39 @@ static LoginManagerConfig *_instance;
                                  @"h5":@"55555",
                                  };
     [ZYLoginManager setupPermanentAccountInfoDic:accountDic];
+    
+    // permanet account infos won't write in the sandbox
+    NSLog(@"sandbox cache path : \n%@", [ZYLoginManager accountInfoPlistPath]);
 }
 
 #pragma mark - ZYLoginManagerDelegate
 - (void)loginManager:(ZYLoginManager *)loginManager loginWithAccout:(NSString *)account password:(NSString *)password
 {
-    NSLog(@"sandbox cache path : \n%@", [ZYLoginManager accountInfoPlistPath]);
-
-    NSLog(@"accout : %@   password : %@", account, password);
+    NSLog(@"LoginManagerConfig  accout : %@   password : %@", account, password);
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kZYLoginSuccessNotificationKey object:@{@"new!!!!":@"bewwewewe"}];
-        
-    });
+    UIViewController *currentVC = [ZYLoginManager currentViewControllerWithWindow:nil];
     
+    Class VC3Class = NSClassFromString(@"ViewController3");
+    Class LoginVCClass = NSClassFromString(@"LoginViewController");
+    
+    if (VC3Class && [currentVC isKindOfClass:VC3Class]) {
+        
+        [currentVC performSelector:@selector(goToTestLogin:) withObject:nil];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIViewController *vc = [ZYLoginManager currentViewControllerWithWindow:nil];
+            if ([vc isKindOfClass:LoginVCClass]) {
+                [vc performSelector:@selector(sendLoginRequestWithAccount:password:) withObject:account withObject:password];
+            }
+        });
+        
+    }else if (LoginVCClass && [currentVC isKindOfClass:LoginVCClass]) {
+        
+        [currentVC performSelector:@selector(sendLoginRequestWithAccount:password:) withObject:account withObject:password];
+        
+    }else{
+        NSLog(@"can't login at here.");
+    }
 }
-
 
 @end

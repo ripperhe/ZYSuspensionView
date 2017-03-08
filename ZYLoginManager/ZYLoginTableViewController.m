@@ -85,22 +85,19 @@ const static NSString *kPasswordKey = @"kPasswordKey";
     if (!_dataSourceArray) {
         _dataSourceArray = [NSMutableArray array];
         
-        // 这样会导致有重复的，后续改为先合成一个字典，再为数组进行赋值
-        
         NSDictionary *permanentDic = [ZYLoginManager shareInstance].permanentAccountInfoDic;
-        for (NSString *key in permanentDic.allKeys) {
-            NSDictionary *dic = @{
-                                  kAccountKey: key,
-                                  kPasswordKey: permanentDic[key]
-                                  };
-            [_dataSourceArray insertObject:dic atIndex:0];
+        NSDictionary *newDic = [ZYLoginManager shareInstance].newAccountInfoDic;
+        
+        NSMutableDictionary *allAccountInfoDic = [NSMutableDictionary dictionaryWithDictionary:permanentDic];
+        if (newDic.allKeys.count) {
+            // Remove duplicate items
+            [allAccountInfoDic setValuesForKeysWithDictionary:newDic];
         }
         
-        NSDictionary *newDic = [ZYLoginManager shareInstance].newAccountInfoDic;
-        for (NSString *key in newDic.allKeys) {
+        for (NSString *key in allAccountInfoDic.allKeys) {
             NSDictionary *dic = @{
                                   kAccountKey: key,
-                                  kPasswordKey: newDic[key]
+                                  kPasswordKey: allAccountInfoDic[key]
                                   };
             [_dataSourceArray insertObject:dic atIndex:0];
         }

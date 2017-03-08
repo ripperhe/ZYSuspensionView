@@ -19,6 +19,7 @@
 
 - (void)dealloc
 {
+    // In order not to affect other demo
     [ZYTestManager removeSuspensionView];
 }
 
@@ -34,7 +35,7 @@
     [TestManagerConfig setupTestManager];
     
     
-    // Add a test item (note the blcok reference problem, and if you need to use self in block, it is best to use __weak)
+    // Add a test item. You can add test items anywhere. (note the blcok reference problem, and if you need to use self in block, it is best to use __weak)
     [ZYTestManager addTestItemWithTitle:@"new item" autoClose:YES action:^{
         NSLog(@"click new item : do something ~~~~~~~~~~");
     }];
