@@ -66,8 +66,8 @@
              || p.state == UIGestureRecognizerStateCancelled) {
         self.alpha = .7;
         
-        CGFloat touchWidth = self.frame.size.width;
-        CGFloat touchHeight = self.frame.size.height;
+        CGFloat ballWidth = self.frame.size.width;
+        CGFloat ballHeight = self.frame.size.height;
         CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
         CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
 
@@ -86,22 +86,22 @@
         CGFloat targetY = 0;
         
         //Correcting Y
-        if (panPoint.y < 15 + touchHeight / 2.0) {
-            targetY = 15 + touchHeight / 2.0;
-        }else if (panPoint.y > (screenHeight - touchHeight / 2.0 - 15)) {
-            targetY = screenHeight - touchHeight / 2.0 - 15;
+        if (panPoint.y < 15 + ballHeight / 2.0) {
+            targetY = 15 + ballHeight / 2.0;
+        }else if (panPoint.y > (screenHeight - ballHeight / 2.0 - 15)) {
+            targetY = screenHeight - ballHeight / 2.0 - 15;
         }else{
             targetY = panPoint.y;
         }
         
         if (minSpace == left) {
-            newCenter = CGPointMake(touchHeight / 3, targetY);
+            newCenter = CGPointMake(ballHeight / 3, targetY);
         }else if (minSpace == right) {
-            newCenter = CGPointMake(screenWidth - touchHeight / 3, targetY);
+            newCenter = CGPointMake(screenWidth - ballHeight / 3, targetY);
         }else if (minSpace == top) {
-            newCenter = CGPointMake(panPoint.x, touchWidth / 3);
+            newCenter = CGPointMake(panPoint.x, ballWidth / 3);
         }else if (minSpace == bottom) {
-            newCenter = CGPointMake(panPoint.x, screenHeight - touchWidth / 3);
+            newCenter = CGPointMake(panPoint.x, screenHeight - ballWidth / 3);
         }
         
         [UIView animateWithDuration:.25 animations:^{
@@ -132,7 +132,7 @@
     [ZYSuspensionManager saveWindow:backWindow forKey:self.md5Key];
 
     self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    self.layer.cornerRadius = self.frame.size.width / 2.0;
+    self.layer.cornerRadius = self.frame.size.width <= self.frame.size.height ? self.frame.size.width / 2.0 : self.frame.size.height / 2.0;
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.borderWidth = 1.0;
     self.clipsToBounds = YES;
