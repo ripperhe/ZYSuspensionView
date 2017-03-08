@@ -40,7 +40,20 @@
     [self addAlertAnimation];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.tableView.frame = [self tableFrame];
+}
+
 #pragma mark - getter
+- (CGRect)tableFrame
+{
+    CGRect frame = CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 10 * 2, [UIScreen mainScreen].bounds.size.height - 120);
+    return frame;
+}
+
 - (UIView *)backView
 {
     if (!_backView) {
@@ -57,8 +70,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        CGRect frame = CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 10 * 2, [UIScreen mainScreen].bounds.size.height - 120);
-        UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:[self tableFrame] style:UITableViewStylePlain];
         tableView.delegate = self;
         tableView.dataSource = self;
         [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -67,11 +79,19 @@
         [self.view addSubview:tableView];
         _tableView = tableView;
         
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.text = @"Test Items";
-        titleLabel.font = [UIFont systemFontOfSize:20];
-        _tableView.tableHeaderView = titleLabel;
+        UIView *headerView = nil;
+        if ([[ZYTestManager shareInstance].delegate respondsToSelector:@selector(testManagerLoginTableHeaderView:)]) {
+            headerView = [[ZYTestManager shareInstance].delegate testManagerLoginTableHeaderView:[ZYTestManager shareInstance]];
+        }
+        if (!headerView) {
+            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+            titleLabel.textAlignment = NSTextAlignmentCenter;
+            titleLabel.text = @"Test Items";
+            titleLabel.font = [UIFont systemFontOfSize:20];
+            titleLabel.backgroundColor = [UIColor colorWithRed:0.21f green:0.45f blue:0.88f alpha:1.00f];
+            headerView = titleLabel;
+        }
+        _tableView.tableHeaderView = headerView;
     }
     return _tableView;
 }

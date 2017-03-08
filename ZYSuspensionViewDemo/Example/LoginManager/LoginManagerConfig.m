@@ -30,10 +30,13 @@ static LoginManagerConfig *_instance;
 
 + (void)setupLoginManager
 {
+    // delegate (required)
     [ZYLoginManager shareInstance].delegate = [LoginManagerConfig shareInstance];
     
+    // show
     [ZYLoginManager showSuspensionView];
     
+    // permanet account info
     NSDictionary *accountDic = @{
                                  @"h1":@"11111",
                                  @"h2":@"22222",
@@ -50,7 +53,9 @@ static LoginManagerConfig *_instance;
 #pragma mark - ZYLoginManagerDelegate
 - (void)loginManager:(ZYLoginManager *)loginManager loginWithAccout:(NSString *)account password:(NSString *)password
 {
-    NSLog(@"LoginManagerConfig  accout : %@   password : %@", account, password);
+//    NSLog(@"LoginManagerConfig  accout : %@   password : %@", account, password);
+    
+    // write the method to login.
     
     UIViewController *currentVC = [ZYLoginManager currentViewControllerWithWindow:nil];
     
@@ -85,5 +90,13 @@ static LoginManagerConfig *_instance;
         NSLog(@"can't login at here.");
     }
 }
+
+//- (UIView *)loginManagerLoginTableHeaderView:(ZYLoginManager *)loginManager
+//{
+//    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    v.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:.6];
+//    return v;
+//}
+
 
 @end

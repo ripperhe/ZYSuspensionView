@@ -44,7 +44,20 @@ const static NSString *kPasswordKey = @"kPasswordKey";
     [self addAlertAnimation];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.tableView.frame = [self tableFrame];
+}
+
 #pragma mark - getter
+- (CGRect)tableFrame
+{
+    CGRect frame = CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 10 * 2, [UIScreen mainScreen].bounds.size.height - 120);
+    return frame;
+}
+
 - (UIView *)backView
 {
     if (!_backView) {
@@ -61,8 +74,7 @@ const static NSString *kPasswordKey = @"kPasswordKey";
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        CGRect frame = CGRectMake(10, 20, [UIScreen mainScreen].bounds.size.width - 10 * 2, [UIScreen mainScreen].bounds.size.height - 120);
-        UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:[self tableFrame] style:UITableViewStylePlain];
         tableView.delegate = self;
         tableView.dataSource = self;
         [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -71,11 +83,19 @@ const static NSString *kPasswordKey = @"kPasswordKey";
         [self.view addSubview:tableView];
         _tableView = tableView;
         
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.text = @"Login Accounts";
-        titleLabel.font = [UIFont systemFontOfSize:20];
-        _tableView.tableHeaderView = titleLabel;
+        UIView *headerView = nil;
+        if ([[ZYLoginManager shareInstance].delegate respondsToSelector:@selector(loginManagerLoginTableHeaderView:)]) {
+            headerView = [[ZYLoginManager shareInstance].delegate loginManagerLoginTableHeaderView:[ZYLoginManager shareInstance]];
+        }
+        if (!headerView) {
+            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+            titleLabel.textAlignment = NSTextAlignmentCenter;
+            titleLabel.text = @"Login Accounts";
+            titleLabel.font = [UIFont systemFontOfSize:20];
+            titleLabel.backgroundColor = [UIColor colorWithRed:0.50f green:0.89f blue:0.31f alpha:1.00f];
+            headerView = titleLabel;
+        }
+        _tableView.tableHeaderView = headerView;
     }
     return _tableView;
 }

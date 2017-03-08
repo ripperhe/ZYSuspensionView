@@ -32,7 +32,7 @@
     
     [LoginManagerConfig setupLoginManager];
     
-    // TODO: 1.代理设置tableheader 2.代理设置线上线下账号 3.代理回调是否为登录状态
+    // TODO: 2.代理设置线上线下账号 3.代理回调是否为登录状态
 }
 
 - (IBAction)goToTestLogin:(id)sender {

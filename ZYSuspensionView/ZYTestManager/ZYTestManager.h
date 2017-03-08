@@ -8,12 +8,28 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ZYTestManager;
 
 extern NSString *const kTestTitleKey; /** The key for title */
 extern NSString *const kTestAutoCloseKey; /** This determines whether to close the table automatically */
 extern NSString *const kTestActionKey; /** The key for action */
 
+@protocol ZYTestManagerDelegate <NSObject>
+
+@optional
+/**
+ Custom test table header view.
+ 
+ @param testManager login manager instance
+ @return custom test table header view
+ */
+- (UIView *)testManagerLoginTableHeaderView:(ZYTestManager *)testManager;
+
+@end
+
 @interface ZYTestManager : NSObject
+
+@property (nonatomic, weak) id<ZYTestManagerDelegate> delegate;
 
 /** Permanent test items set by @selector(setupTestItemPermanentArray:) */
 @property (nonatomic, strong, readonly) NSArray <NSDictionary *>*permanentTestItemArray;

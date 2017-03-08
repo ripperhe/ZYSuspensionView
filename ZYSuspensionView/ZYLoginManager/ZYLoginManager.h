@@ -26,6 +26,16 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
  */
 - (void)loginManager:(ZYLoginManager *)loginManager loginWithAccout:(NSString *)account password:(NSString *)password;
 
+@optional
+
+/**
+ Custom login table header view.
+
+ @param loginManager login manager instance
+ @return custom account info table header view
+ */
+- (UIView *)loginManagerLoginTableHeaderView:(ZYLoginManager *)loginManager;
+
 @end
 
 

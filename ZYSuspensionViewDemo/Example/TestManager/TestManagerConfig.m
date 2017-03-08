@@ -9,10 +9,30 @@
 
 #import "TestManagerConfig.h"
 
+@interface TestManagerConfig ()<ZYTestManagerDelegate>
+
+@end
+
 @implementation TestManagerConfig
+
+static TestManagerConfig *_instance;
+
++ (instancetype)shareInstance
+{
+    if (!_instance) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _instance = [[TestManagerConfig alloc] init];
+        });
+    }
+    return _instance;
+}
 
 + (void)setupTestManager
 {
+    // delegate (optation)
+//    [ZYTestManager shareInstance].delegate = [TestManagerConfig shareInstance];
+
     // show TestManager' suspensionView
     [ZYTestManager showSuspensionView];
     
@@ -48,5 +68,12 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+#pragma mark - ZYTestManagerDelegate
+//- (UIView *)testManagerLoginTableHeaderView:(ZYTestManager *)testManager
+//{
+//    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    v.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:.6];
+//    return v;
+//}
 
 @end
