@@ -89,7 +89,7 @@ static ZYTestManager *_instance;
         [[ZYTestManager shareInstance].susView removeFromScreen];
     }
     ZYSuspensionView *sus = [ZYSuspensionView defaultSuspensionViewWithDelegate:[ZYTestManager shareInstance]];
-    [sus setTitle:@"TEST" forState:UIControlStateNormal];
+    [sus setTitle:@"Test" forState:UIControlStateNormal];
     [sus show];
     [ZYTestManager shareInstance].susView = sus;
 #endif

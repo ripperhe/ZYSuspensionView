@@ -9,7 +9,9 @@
 
 If you want to run demo, download the project can be run directly.
 
-![](http://ojt802f2b.bkt.clouddn.com/SuspensionView.gif)![](http://ojt802f2b.bkt.clouddn.com/TestManager.gif)![](http://ojt802f2b.bkt.clouddn.com/LoginManager.gif)
+![](http://ojt802f2b.bkt.clouddn.com/SuspensionView.gif)
+![](http://ojt802f2b.bkt.clouddn.com/TestManager.gif)
+![](http://ojt802f2b.bkt.clouddn.com/LoginManager.gif)
 
 ## Requirements
 
