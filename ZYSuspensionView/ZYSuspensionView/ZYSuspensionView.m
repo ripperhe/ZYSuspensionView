@@ -34,6 +34,13 @@
     return sus;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    return [self initWithFrame:frame
+                         color:[UIColor colorWithRed:0.21f green:0.45f blue:0.88f alpha:1.00f]
+                      delegate:nil];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color delegate:(id<ZYSuspensionViewDelegate>)delegate
 {
     if(self = [super initWithFrame:frame])

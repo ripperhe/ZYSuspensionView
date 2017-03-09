@@ -42,22 +42,22 @@ static LoginManagerConfig *_instance;
     // permanet account info
     // beta
     NSDictionary *betaAccountDic = @{
-                                 @"h1-beta":@"11111",
-                                 @"h2-beta":@"22222",
-                                 @"h3-beta":@"33333",
-                                 @"h4-beta":@"44444",
-                                 @"h5-beta":@"55555",
-                                 };
+                                     @"h1-beta":@"11111-beta",
+                                     @"h2-beta":@"22222-beta",
+                                     @"h3-beta":@"33333-beta",
+                                     @"h4-beta":@"44444-beta",
+                                     @"h5-beta":@"55555-beta",
+                                     };
     [ZYLoginManager setupPermanentAccountInfoDic:betaAccountDic isBeta:YES];
     
     // official
     NSDictionary *officialAccountDic = @{
-                                 @"h1-official":@"11111",
-                                 @"h2-official":@"22222",
-                                 @"h3-official":@"33333",
-                                 @"h4-official":@"44444",
-                                 @"h5-official":@"55555",
-                                 };
+                                         @"h1-official":@"11111-official",
+                                         @"h2-official":@"22222-official",
+                                         @"h3-official":@"33333-official",
+                                         @"h4-official":@"44444-official",
+                                         @"h5-official":@"55555-official",
+                                         };
     [ZYLoginManager setupPermanentAccountInfoDic:officialAccountDic isBeta:NO];
     
     // permanet account infos won't write in the sandbox
@@ -78,12 +78,14 @@ static LoginManagerConfig *_instance;
     
     if (VC3Class && [currentVC isKindOfClass:VC3Class]) {
         
+        // go to login vc
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
         [currentVC performSelector:@selector(goToTestLogin:) withObject:nil];
 #pragma clang diagnostic pop
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // run login method
             UIViewController *vc = [ZYLoginManager currentViewControllerWithWindow:nil];
             if ([vc isKindOfClass:LoginVCClass]) {
 #pragma clang diagnostic push
@@ -95,11 +97,12 @@ static LoginManagerConfig *_instance;
         
     }else if (LoginVCClass && [currentVC isKindOfClass:LoginVCClass]) {
         
+        // run login method
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
         [currentVC performSelector:@selector(sendLoginRequestWithAccount:password:) withObject:account withObject:password];
 #pragma clang diagnostic pop
-
+        
     }else{
         NSLog(@"can't login at here.");
     }

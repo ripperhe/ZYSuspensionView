@@ -249,5 +249,4 @@ static ZYLoginManager *_instance;
     return [self findBestViewController:viewController];
 }
 
-
 @end

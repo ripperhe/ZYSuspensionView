@@ -106,7 +106,6 @@ extern NSString *const kZYLogoutSuccessNotificationKey;
  */
 + (NSString *)accountInfoPlistPath;
 
-
 /**
  Remove account info plist file.
  */
