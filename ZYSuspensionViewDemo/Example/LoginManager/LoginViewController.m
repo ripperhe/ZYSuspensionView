@@ -58,7 +58,8 @@
         
         // When you log in successfully, please send ZYLoginSuccess Notification with account info.
         // The susView will be removed, and the account info will be saved.
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"kZYLoginSuccessNotificationKey" object:@{account:password}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kZYLoginSuccessNotificationKey"
+                                                            object:@{account:password}];
     });
     
 }

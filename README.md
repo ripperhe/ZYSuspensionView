@@ -7,7 +7,9 @@
 
 ## Example
 
-如果想运行demo，下载之后，直接运行工程即可。
+If you want to run demo, download the project can be run directly.
+
+![](http://ojt802f2b.bkt.clouddn.com/SuspensionView.gif)![](http://ojt802f2b.bkt.clouddn.com/TestManager.gif)![](http://ojt802f2b.bkt.clouddn.com/LoginManager.gif)
 
 ## Requirements
 
@@ -22,56 +24,64 @@ it, simply add the following line to your Podfile:
 pod "ZYSuspensionView"
 ```
 
-如果仅仅只想集成悬浮球，可以pod子仓库
+Only install SuspensionView
 
 ```ruby
 pod "ZYSuspensionView/SuspensionView"
 ```
+Install SuspensionView + TestManager
+
+```ruby
+pod "ZYSuspensionView/TestManager"
+```
+
+Install SuspensionView + LoginManager
+
+```ruby
+pod "ZYSuspensionView/LoginManager"
+```
 
 ## How To Use
 
-* 悬浮球和测试组件配合使用
+### SuspensionView
+
+Create and show a suspensionView
 
 ```objc
-// 显示一个默认的悬浮球
-[ZYTestManager showSuspensionView];
-    
-// 设置常驻的测试条目
-NSArray *baseArray = @[
-                       @{
-                           kTestTitleKey: @"item1",
-                           kTestAutoCloseKey: @YES,
-                           kTestActionKey: ^{
-                               NSLog(@"click item1 : do something ~~~~~");
-                           }
-                           },
-                       @{
-                           kTestTitleKey:@"item2",
-                           kTestAutoCloseKey: @NO,
-                           kTestActionKey:^{
-                               NSLog(@"click item2 : do something ~~~~~");
-                           }
-                           },
-                       ];
-[ZYTestManager setupTestItemPermanentArray:baseArray];
-    
-// 添加一个测试条目 (注意blcok的引用问题，如果需要在block中使用self，最好传入__weak)
+ZYSuspensionView *susView = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(- 50.0 / 6, 200, 50, 50)
+                                                           color:color
+                                                        delegate:self];
+[susView show];
+```
+
+### TestManager
+
+Add a test item. You can add test items anywhere.
+
+```objc
 [ZYTestManager addTestItemWithTitle:@"new item" autoClose:YES action:^{
-    NSLog(@"click new item : do something ~~~~~~~~~~");
+    // click new item : do something ~~~~~~~~~~
 }];
 ```
 
-* 仅仅使用悬浮球
+### LoginManager
+
+LoginManager help you save and get account password.
+
+When you log in successfully, please send ZYLoginSuccess Notification with account info. The susView will be removed, and the account info will be saved.
 
 ```objc
-// 仅仅创建一个悬浮球，自行实现点击的代理方法
-ZYSuspensionView *sus = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(- 50.0 / 6, 200, 50, 50)
-                                                           color:[UIColor greenColor]
-                                                        delegate:self];
-sus.leanType = ZYSuspensionViewLeanTypeEachSide;
-[sus setTitle:@"测试2" forState:UIControlStateNormal];
-[sus show];
+[[NSNotificationCenter defaultCenter] postNotificationName:@"kZYLoginSuccessNotificationKey"
+                                                    object:@{account:password}];
 ```
+
+When you log out successfully, please send ZYLogoutSuccess Notification. The susView will be show again.
+
+```objc
+[[NSNotificationCenter defaultCenter] postNotificationName:@"kZYLogoutSuccessNotificationKey"
+                                                    object:nil];
+```
+
 
 ## Author
 

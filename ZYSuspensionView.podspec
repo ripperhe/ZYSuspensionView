@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ZYSuspensionView"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "悬浮球"
 
   # This description is used to generate tags and improve search results.
@@ -95,14 +95,18 @@ Pod::Spec.new do |s|
   # s.exclude_files = "Classes/Exclude"
 
   s.subspec 'SuspensionView' do | su |
-      su.source_files = 'ZYSuspensionView/**/*'
+      su.source_files = 'ZYSuspensionView/ZYSuspensionView/**/*'
   end
 
   s.subspec 'TestManager' do | tm |
-      tm.source_files = 'ZYTestManager/**/*'
+      tm.source_files = 'ZYSuspensionView/ZYTestManager/**/*'
       tm.dependency 'ZYSuspensionView/SuspensionView'
   end
 
+  s.subspec 'LoginManager' do | lm |
+      lm.source_files = 'ZYSuspensionView/ZYLoginManager/**/*'
+      lm.dependency 'ZYSuspensionView/SuspensionView'
+  end
   # s.public_header_files = "Classes/**/*.h"
 
 

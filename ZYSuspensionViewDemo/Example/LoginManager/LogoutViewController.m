@@ -28,7 +28,8 @@
     
     // When you log out successfully, please send ZYLogoutSuccess Notification.
     // The susView will be show again.
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"kZYLogoutSuccessNotificationKey" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kZYLogoutSuccessNotificationKey"
+                                                        object:nil];
 }
 
 
