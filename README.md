@@ -1,6 +1,5 @@
 # ZYSuspensionView
 
-[![CI Status](http://img.shields.io/travis/ripper/ZYSuspensionView.svg?style=flat)](https://travis-ci.org/ripper/ZYSuspensionView)
 [![Version](https://img.shields.io/cocoapods/v/ZYSuspensionView.svg?style=flat)](http://cocoapods.org/pods/ZYSuspensionView)
 [![License](https://img.shields.io/cocoapods/l/ZYSuspensionView.svg?style=flat)](http://cocoapods.org/pods/ZYSuspensionView)
 [![Platform](https://img.shields.io/cocoapods/p/ZYSuspensionView.svg?style=flat)](http://cocoapods.org/pods/ZYSuspensionView)
