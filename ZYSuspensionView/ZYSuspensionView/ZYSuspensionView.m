@@ -92,7 +92,7 @@
         }else{
             minSpace = MIN(MIN(MIN(top, left), bottom), right);
         }
-        CGPoint newCenter;
+        CGPoint newCenter = CGPointZero;
         CGFloat targetY = 0;
         
         //Correcting Y
@@ -110,7 +110,7 @@
             newCenter = CGPointMake(screenWidth - ballHeight / 3, targetY);
         }else if (minSpace == top) {
             newCenter = CGPointMake(panPoint.x, ballWidth / 3);
-        }else if (minSpace == bottom) {
+        }else {
             newCenter = CGPointMake(panPoint.x, screenHeight - ballWidth / 3);
         }
         

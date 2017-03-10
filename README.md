@@ -4,10 +4,17 @@
 [![License](https://img.shields.io/cocoapods/l/ZYSuspensionView.svg?style=flat)](http://cocoapods.org/pods/ZYSuspensionView)
 [![Platform](https://img.shields.io/cocoapods/p/ZYSuspensionView.svg?style=flat)](http://cocoapods.org/pods/ZYSuspensionView)
 
+![](https://raw.githubusercontent.com/ripperhe/Resource/master/20170310/China.png) Chinese (Simplified):
+
+[**简书传送**](http://www.jianshu.com/p/7dc5cebcf0b6)  
+
+[**博客介绍**](http://ripperhe.com/2017/03/10/suspension-view/)
+
 ## Example
 
 If you want to run demo, download the project can be run directly.
 
+![](https://raw.githubusercontent.com/ripperhe/Resource/master/20170310/testmanager.gif)
 ![](https://raw.githubusercontent.com/ripperhe/Resource/master/20170310/loginmanager.gif)
 
 ## Requirements
