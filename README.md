@@ -9,9 +9,7 @@
 
 If you want to run demo, download the project can be run directly.
 
-![](http://ojt802f2b.bkt.clouddn.com/ZYSuspensionView.gif)
-![](http://ojt802f2b.bkt.clouddn.com/ZYTestManager.gif)
-![](http://ojt802f2b.bkt.clouddn.com/ZYLoginManager.gif)
+![](http://ojt802f2b.bkt.clouddn.com/loginmanager.gif)
 
 ## Requirements
 
