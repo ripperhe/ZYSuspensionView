@@ -8,7 +8,7 @@
 
 If you want to run demo, download the project can be run directly.
 
-![](http://ojt802f2b.bkt.clouddn.com/loginmanager.gif)
+![](https://raw.githubusercontent.com/ripperhe/Resource/master/20170310/loginmanager.gif)
 
 ## Requirements
 
