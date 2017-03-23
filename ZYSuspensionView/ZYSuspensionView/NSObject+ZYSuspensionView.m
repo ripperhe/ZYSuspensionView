@@ -10,16 +10,16 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <objc/runtime.h>
 
-const char *md5KeyChar = "md5KeyChar";
+const void *zy_suspensionMd5Key = &zy_suspensionMd5Key;
 
 @implementation NSObject (ZYSuspensionView)
 
-- (NSString *)md5Key
+- (NSString *)zy_md5Key
 {
-    NSString *str = objc_getAssociatedObject(self, md5KeyChar);
+    NSString *str = objc_getAssociatedObject(self, zy_suspensionMd5Key);
     if (str.length <= 0) {
         str = [self getCurrentMd5Key];
-        objc_setAssociatedObject(self, md5KeyChar, str, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, zy_suspensionMd5Key, str, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return str;
 }

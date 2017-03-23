@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ySe-aM-iX1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ySe-aM-iX1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T4v-k3-rmj">
-                                <rect key="frame" x="-4" y="-6" width="383" height="673"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="dmk-sX-HVy"/>
@@ -33,10 +33,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="T4v-k3-rmj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Hnw-Uy-iCL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="T4v-k3-rmj" secondAttribute="trailing" constant="-20" id="SiQ-hO-75t"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T4v-k3-rmj" secondAttribute="bottom" id="uDN-j1-uye"/>
-                            <constraint firstItem="T4v-k3-rmj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-70" id="waA-YD-RBC"/>
+                            <constraint firstAttribute="trailing" secondItem="T4v-k3-rmj" secondAttribute="trailing" id="1Ff-cm-7xI"/>
+                            <constraint firstItem="T4v-k3-rmj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4hd-xi-5Mu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T4v-k3-rmj" secondAttribute="bottom" id="Dpg-8S-41z"/>
+                            <constraint firstItem="T4v-k3-rmj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mP6-nr-1df"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ZYSuspensionView" id="PYB-9I-Gi7"/>
@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="-559"/>
+            <point key="canvasLocation" x="1117.5999999999999" y="-559.07046476761627"/>
         </scene>
         <!--View Controller3-->
         <scene sceneID="P09-9i-a7X">

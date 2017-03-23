@@ -23,8 +23,6 @@
 /*
  TODO:
  1. 修改弹出动画
- 2. 为ZYTestManager添加一个两个参数的方法
- 3. 分类里面有 const char 需要调整一下
  */
 
 

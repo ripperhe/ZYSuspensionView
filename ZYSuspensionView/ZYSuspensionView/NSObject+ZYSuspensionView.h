@@ -13,11 +13,6 @@
 /**
  *  Lazy loading MD5 string
  */
-@property (nonatomic, copy, readonly) NSString *md5Key;
-
-/**
- *  Generate MD5 values based on current description
- */
-- (NSString *)getCurrentMd5Key;
+@property (nonatomic, copy, readonly) NSString *zy_md5Key;
 
 @end

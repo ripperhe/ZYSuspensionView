@@ -36,18 +36,22 @@
     
     
     // Add a test item. You can add test items anywhere. (note the blcok reference problem, and if you need to use self in block, it is best to use __weak)
-    [ZYTestManager addTestItemWithTitle:@"new item" autoClose:YES action:^{
-        NSLog(@"click new item : do something ~~~~~~~~~~");
+    [ZYTestManager addTestItemWithTitle:@"new item0" autoClose:YES action:^{
+        NSLog(@"click new item0 : do something ~~~~~~~~~~");
     }];
     
-    [ZYTestManager addTestItemWithTitle:@"new item2" autoClose:NO action:^{
-        NSLog(@"click new item2 : do something ~~~~~~~~~~");
+    [ZYTestManager addTestItemWithTitle:@"new item1" autoClose:NO action:^{
+        NSLog(@"click new item1 : do something ~~~~~~~~~~");
         
         Class VCClass = NSClassFromString(@"SomeViewController");
         if (VCClass && [VCClass isSubclassOfClass:[UIViewController class]]) {
             UIViewController *vc = [VCClass new];
             [[ZYTestManager shareInstance].testTableViewController presentViewController:vc animated:YES completion:nil];
         }
+    }];
+
+    [ZYTestManager addTestItemWithTitle:@"new item2" action:^{
+        NSLog(@"click new item2 : do something ~~~~~~~~~~");
     }];
 }
 

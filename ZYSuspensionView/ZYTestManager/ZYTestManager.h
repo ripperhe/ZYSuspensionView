@@ -73,6 +73,18 @@ extern NSString *const kTestActionKey; /** The key for action */
  */
 + (void)addTestItemWithTitle:(NSString *)title autoClose:(BOOL)autoClose action:(void(^)())action;
 
+
+/**
+ Add a single test item
+
+ @param title title
+ @param action action after click
+ 
+ @note after click test table, the table will closex
+ */
++ (void)addTestItemWithTitle:(NSString *)title action:(void(^)())action;
+
+
 /**
  Close test list
  */

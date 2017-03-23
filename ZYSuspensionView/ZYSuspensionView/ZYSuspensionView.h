@@ -9,8 +9,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ZYSuspensionView;
+@interface ZYSuspensionContainer : UIWindow
+@end
 
+@interface ZYSuspensionViewController : UIViewController
+@end
+
+@class ZYSuspensionView;
 @protocol ZYSuspensionViewDelegate <NSObject>
 /** callback for click on the ZYSuspensionView */
 - (void)suspensionViewClick:(ZYSuspensionView *)suspensionView;
@@ -22,7 +27,6 @@ typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
     /** Can stay in the upper, lower, left, right */
     ZYSuspensionViewLeanTypeEachSide
 };
-
 
 @interface ZYSuspensionView : UIButton
 
@@ -40,6 +44,8 @@ typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
  */
 + (instancetype)defaultSuspensionViewWithDelegate:(id<ZYSuspensionViewDelegate>)delegate;
 
+/** Get the suggest x with width */
++ (CGFloat)suggestXWithWidth:(CGFloat)width;
 
 /**
  Create a susView
@@ -52,12 +58,12 @@ typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
 - (instancetype)initWithFrame:(CGRect)frame color:(UIColor*)color delegate:(id<ZYSuspensionViewDelegate>)delegate;
 
 /**
- *  show
+ *  Show
  */
 - (void)show;
 
 /**
- *  remove add dealloc
+ *  Remove and dealloc
  */
 - (void)removeFromScreen;
 

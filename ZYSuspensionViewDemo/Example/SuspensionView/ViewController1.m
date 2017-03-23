@@ -33,7 +33,7 @@
     
     // Just create a ZYSuspensionView
     UIColor *color = [UIColor colorWithRed:0.97 green:0.30 blue:0.30 alpha:1.00];
-    ZYSuspensionView *susView = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(- 50.0 / 6, 200, 50, 50)
+    ZYSuspensionView *susView = [[ZYSuspensionView alloc] initWithFrame:CGRectMake([ZYSuspensionView suggestXWithWidth:100], 200, 100, 100)
                                                                color:color
                                                             delegate:self];
     susView.leanType = ZYSuspensionViewLeanTypeEachSide;

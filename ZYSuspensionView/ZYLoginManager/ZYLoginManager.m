@@ -94,9 +94,9 @@ static ZYLoginManager *_instance;
         
         UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
         ZYLoginTableViewController *loginTableViewVC = [[ZYLoginTableViewController alloc] init];
-        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        ZYSuspensionContainer *window = [[ZYSuspensionContainer alloc] initWithFrame:[UIScreen mainScreen].bounds];
         window.rootViewController = loginTableViewVC;
-        window.windowLevel = UIWindowLevelAlert * 2 - 1;
+        window.windowLevel -= 1;
         [window makeKeyAndVisible];
         [ZYSuspensionManager saveWindow:window forKey:kZYLoginTableControllerKey];
         [currentKeyWindow makeKeyWindow];
@@ -173,7 +173,7 @@ static ZYLoginManager *_instance;
     }
     
     UIColor *color = [UIColor colorWithRed:0.50f green:0.89f blue:0.31f alpha:1.00f];
-    ZYSuspensionView *susView = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(- 50.0 / 6, 200, 50, 50)
+    ZYSuspensionView *susView = [[ZYSuspensionView alloc] initWithFrame:CGRectMake(-8, 200, 55, 55)
                                                                   color:color
                                                                delegate:[ZYLoginManager shareInstance]];
     [susView setTitle:@"Login" forState:UIControlStateNormal];

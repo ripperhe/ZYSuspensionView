@@ -70,9 +70,9 @@ static ZYTestManager *_instance;
         
         UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
         ZYTestTableViewController *testTableViewVC = [[ZYTestTableViewController alloc] init];
-        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        ZYSuspensionContainer *window = [[ZYSuspensionContainer alloc] initWithFrame:[UIScreen mainScreen].bounds];
         window.rootViewController = testTableViewVC;
-        window.windowLevel = UIWindowLevelAlert * 2 - 1;
+        window.windowLevel -= 1;
         [window makeKeyAndVisible];
         [ZYSuspensionManager saveWindow:window forKey:kZYTestTableControllerKey];
         [currentKeyWindow makeKeyWindow];
@@ -122,6 +122,14 @@ static ZYTestManager *_instance;
     [[ZYTestManager shareInstance].newTestItemDic setObject:dic forKey:title];
 #endif
 }
+
++ (void)addTestItemWithTitle:(NSString *)title action:(void (^)())action
+{
+#if DEBUG
+    [self addTestItemWithTitle:title autoClose:@YES action:action];
+#endif
+}
+
 
 + (void)closeTestTableViewController
 {
