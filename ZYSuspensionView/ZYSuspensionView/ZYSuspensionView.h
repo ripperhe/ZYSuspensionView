@@ -34,7 +34,8 @@ typedef NS_ENUM(NSUInteger, ZYSuspensionViewLeanType) {
 @property (nonatomic, weak) id<ZYSuspensionViewDelegate> delegate;
 /** lean type, default is ZYSuspensionViewLeanTypeHorizontal */
 @property (nonatomic, assign) ZYSuspensionViewLeanType leanType;
-
+/** container window */
+@property (nonatomic, readonly) ZYSuspensionContainer *containerWindow;
 
 /**
  Create a default susView

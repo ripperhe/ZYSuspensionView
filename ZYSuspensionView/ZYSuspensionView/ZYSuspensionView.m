@@ -20,6 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.windowLevel = 1000000;
+        self.clipsToBounds = YES;
     }
     return self;
 }
@@ -169,6 +170,12 @@
 - (void)removeFromScreen
 {
     [ZYSuspensionManager destroyWindowForKey:self.zy_md5Key];
+}
+
+#pragma mark - getter
+- (ZYSuspensionContainer *)containerWindow
+{
+    return (ZYSuspensionContainer *)[ZYSuspensionManager windowForKey:self.zy_md5Key];
 }
 
 @end

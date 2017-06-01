@@ -23,7 +23,6 @@
 /*
  TODO:
  1. 修改弹出动画
- 2. 获取悬浮球container window
  */
 
 
