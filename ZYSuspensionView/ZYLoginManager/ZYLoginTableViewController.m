@@ -131,6 +131,12 @@ const static NSString *kPasswordKey = @"kPasswordKey";
                                   };
             [_dataSourceArray insertObject:dic atIndex:0];
         }
+        
+        [_dataSourceArray sortUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+            NSString *account1 = [obj1 objectForKey:kAccountKey];
+            NSString *account2 = [obj2 objectForKey:kAccountKey];
+            return [account1 compare:account2];
+        }];
     }
     return _dataSourceArray;
 }
