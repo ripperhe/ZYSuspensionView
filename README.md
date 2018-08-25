@@ -43,7 +43,7 @@ Install SuspensionView + LoginManager
 pod "ZYSuspensionView/LoginManager"
 ```
 
-## How To Use
+## Usage
 
 ### SuspensionView
 
