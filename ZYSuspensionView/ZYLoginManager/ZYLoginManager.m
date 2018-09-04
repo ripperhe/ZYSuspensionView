@@ -8,8 +8,6 @@
 //
 
 #import "ZYLoginManager.h"
-#import "ZYSuspensionView.h"
-#import "ZYSuspensionManager.h"
 #import "ZYLoginTableViewController.h"
 
 NSString *const kZYLoginSuccessNotificationKey = @"kZYLoginSuccessNotificationKey";

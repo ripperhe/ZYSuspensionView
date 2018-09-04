@@ -8,6 +8,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZYSuspensionView.h"
+
 @class ZYTestManager;
 
 extern NSString *const kTestTitleKey; /** The key for title */

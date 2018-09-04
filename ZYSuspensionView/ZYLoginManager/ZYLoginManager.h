@@ -8,6 +8,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZYSuspensionView.h"
+
 @class ZYLoginManager;
 
 /** The notification name for login success, send the account information by the notification, notification.object is a dictionary, the key is account and the value is password */

@@ -10,6 +10,7 @@
 #import "ViewController1.h"
 #import "ViewController2.h"
 #import "ViewController3.h"
+#import "ZYSuspensionManager.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,9 @@
 /*
  TODO:
  1. 修改弹出动画
+ 2. 修改UI
+ 3. 修改window管理
+ 4. 修改key
  */
 
 

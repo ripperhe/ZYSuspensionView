@@ -54,16 +54,36 @@ static ZYSuspensionManager *_instance;
 
 + (UIWindow *)windowForKey:(NSString *)key
 {
+    if (!key.length) {
+        NSAssert(0, @"ZYSuspensionManager: 传入的 key 值不对");
+        return nil;
+    }
+    
     return [[ZYSuspensionManager shared].windowDic objectForKey:key];
 }
 
 + (void)saveWindow:(UIWindow *)window forKey:(NSString *)key
 {
+    if (!key.length) {
+        NSAssert(0, @"ZYSuspensionManager: 传入的 key 值不对");
+        return;
+    }
+    if (!window) {
+        NSAssert(0, @"ZYSuspensionManager: 不能传入空 window");
+        return;
+    }
+    
+    NSAssert([self windowForKey:key] == nil, @"ZYSuspensionManager: 已存在 key=\"%@\" 的 window", key);
     [[ZYSuspensionManager shared].windowDic setObject:window forKey:key];
 }
 
 + (void)destroyWindowForKey:(NSString *)key
 {
+    if (!key.length) {
+        NSAssert(0, @"ZYSuspensionManager: 传入的 key 值不对");
+        return;
+    }
+
     UIWindow *window = [[ZYSuspensionManager shared].windowDic objectForKey:key];
     window.hidden = YES;
     if (window.rootViewController.presentedViewController) {
@@ -75,12 +95,11 @@ static ZYSuspensionManager *_instance;
 
 + (void)destroyAllWindow
 {
-    for (UIWindow *window in [ZYSuspensionManager shared].windowDic.allValues) {
-        window.hidden = YES;
-        window.rootViewController = nil;
+    NSArray *allKeys = [ZYSuspensionManager shared].windowDic.allKeys.copy;
+    for (NSString *key in allKeys) {
+        [self destroyWindowForKey:key];
     }
-    [[ZYSuspensionManager shared].windowDic removeAllObjects];
-    [[UIApplication sharedApplication].delegate.window makeKeyAndVisible];
 }
+
 
 @end

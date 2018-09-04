@@ -9,7 +9,6 @@
 
 #import "ZYLoginTableViewController.h"
 #import "ZYLoginManager.h"
-#import "ZYSuspensionManager.h"
 
 const static NSString *kAccountKey = @"kAccountKey";
 const static NSString *kPasswordKey = @"kPasswordKey";

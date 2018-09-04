@@ -8,12 +8,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ZYSuspensionContainer : UIWindow
-@end
-
-@interface ZYSuspensionViewController : UIViewController
-@end
+#import "ZYSuspensionManager.h"
+#import "ZYSuspensionContainer.h"
+#import "ZYSuspensionViewController.h"
 
 @class ZYSuspensionView;
 @protocol ZYSuspensionViewDelegate <NSObject>

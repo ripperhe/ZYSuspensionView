@@ -8,32 +8,18 @@
 //
 
 #import "ZYSuspensionView.h"
-#import "NSObject+ZYSuspensionView.h"
-#import "ZYSuspensionManager.h"
 
 #define kLeanProportion (8/55.0)
 #define kVerticalMargin 15.0
 
-@implementation ZYSuspensionContainer
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.windowLevel = 1000000;
-        self.clipsToBounds = YES;
-    }
-    return self;
-}
-@end
-
-@implementation ZYSuspensionViewController
-- (BOOL)prefersStatusBarHidden
-{
-    return NO;
-}
-@end
 
 @implementation ZYSuspensionView
+
+- (void)dealloc
+{
+    fprintf(stderr,"[%s ● %s ● %d] Func ★ <%s: %p> ◉ %s\n", __TIME__, ([NSString stringWithFormat:@"%s", __FILE__].lastPathComponent).UTF8String, __LINE__, NSStringFromClass(self.class).UTF8String, self,  NSStringFromSelector(_cmd).UTF8String );
+    
+}
 
 + (instancetype)defaultSuspensionViewWithDelegate:(id<ZYSuspensionViewDelegate>)delegate
 {
@@ -76,6 +62,11 @@
     return self;
 }
 
+- (NSString *)memoryAddressKey
+{
+    return [NSString stringWithFormat:@"%p", self];
+}
+
 #pragma mark - event response
 - (void)handlePanGesture:(UIPanGestureRecognizer*)p
 {
@@ -85,7 +76,7 @@
     if(p.state == UIGestureRecognizerStateBegan) {
         self.alpha = 1;
     }else if(p.state == UIGestureRecognizerStateChanged) {
-        [ZYSuspensionManager windowForKey:self.zy_md5Key].center = CGPointMake(panPoint.x, panPoint.y);
+        self.containerWindow.center = CGPointMake(panPoint.x, panPoint.y);
     }else if(p.state == UIGestureRecognizerStateEnded
              || p.state == UIGestureRecognizerStateCancelled) {
         self.alpha = .7;
@@ -132,7 +123,7 @@
         }
         
         [UIView animateWithDuration:.25 animations:^{
-            [ZYSuspensionManager windowForKey:self.zy_md5Key].center = newCenter;
+            self.containerWindow.center = newCenter;
         }];
     }else{
         NSLog(@"pan state : %zd", p.state);
@@ -150,32 +141,28 @@
 #pragma mark - public methods
 - (void)show
 {
-    if ([ZYSuspensionManager windowForKey:self.zy_md5Key]) return;
-    
-    UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
+    if ([ZYSuspensionManager windowForKey:self.memoryAddressKey]) return;
     
     ZYSuspensionContainer *backWindow = [[ZYSuspensionContainer alloc] initWithFrame:self.frame];
     backWindow.rootViewController = [[ZYSuspensionViewController alloc] init];
-    [backWindow makeKeyAndVisible];
-    [ZYSuspensionManager saveWindow:backWindow forKey:self.zy_md5Key];
-
+    
     self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     self.layer.cornerRadius = self.frame.size.width <= self.frame.size.height ? self.frame.size.width / 2.0 : self.frame.size.height / 2.0;
-    [backWindow addSubview:self];
-    
-    // Keep the original keyWindow and avoid some unpredictable problems
-    [currentKeyWindow makeKeyWindow];
+    [backWindow.rootViewController.view addSubview:self];
+
+    [backWindow setHidden:NO];
+    [ZYSuspensionManager saveWindow:backWindow forKey:self.memoryAddressKey];
 }
 
 - (void)removeFromScreen
 {
-    [ZYSuspensionManager destroyWindowForKey:self.zy_md5Key];
+    [ZYSuspensionManager destroyWindowForKey:self.memoryAddressKey];
 }
 
 #pragma mark - getter
 - (ZYSuspensionContainer *)containerWindow
 {
-    return (ZYSuspensionContainer *)[ZYSuspensionManager windowForKey:self.zy_md5Key];
+    return (ZYSuspensionContainer *)[ZYSuspensionManager windowForKey:self.memoryAddressKey];
 }
 
 @end

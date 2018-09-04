@@ -9,7 +9,6 @@
 
 #import "ZYTestTableViewController.h"
 #import "ZYTestManager.h"
-#import "ZYSuspensionManager.h"
 
 @interface ZYTestTableViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -28,7 +27,7 @@
 
 - (void)dealloc
 {
-//    NSLog(@"%@ %s", self.description, __func__);
+    fprintf(stderr,"[%s ● %s ● %d] Func ★ <%s: %p> ◉ %s\n", __TIME__, ([NSString stringWithFormat:@"%s", __FILE__].lastPathComponent).UTF8String, __LINE__, NSStringFromClass(self.class).UTF8String, self,  NSStringFromSelector(_cmd).UTF8String );
 }
 
 - (void)viewDidLoad {

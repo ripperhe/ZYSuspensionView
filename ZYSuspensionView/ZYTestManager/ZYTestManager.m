@@ -8,8 +8,6 @@
 //
 
 #import "ZYTestManager.h"
-#import "ZYSuspensionManager.h"
-#import "ZYSuspensionView.h"
 #import "ZYTestTableViewController.h"
 
 NSString *const kTestTitleKey = @"title";
@@ -67,15 +65,13 @@ static ZYTestManager *_instance;
         [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
         [ZYTestManager shareInstance].testTableViewController = nil;
     }else{
-        
-        UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
         ZYTestTableViewController *testTableViewVC = [[ZYTestTableViewController alloc] init];
         ZYSuspensionContainer *window = [[ZYSuspensionContainer alloc] initWithFrame:[UIScreen mainScreen].bounds];
         window.rootViewController = testTableViewVC;
         window.windowLevel -= 1;
-        [window makeKeyAndVisible];
+        [window setHidden:NO];
         [ZYSuspensionManager saveWindow:window forKey:kZYTestTableControllerKey];
-        [currentKeyWindow makeKeyWindow];
+
         [ZYTestManager shareInstance].testTableViewController = testTableViewVC;
     }
 #endif
@@ -86,7 +82,7 @@ static ZYTestManager *_instance;
 {
 #if DEBUG
     if ([ZYTestManager shareInstance].susView) {
-        [[ZYTestManager shareInstance].susView removeFromScreen];
+        return;
     }
     ZYSuspensionView *sus = [ZYSuspensionView defaultSuspensionViewWithDelegate:[ZYTestManager shareInstance]];
     [sus setTitle:@"Test" forState:UIControlStateNormal];
