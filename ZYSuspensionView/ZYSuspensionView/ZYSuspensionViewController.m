@@ -8,15 +8,6 @@
 
 #import "ZYSuspensionViewController.h"
 
-@interface ZYSuspensionViewController ()
-
-@end
-
 @implementation ZYSuspensionViewController
-
-- (BOOL)prefersStatusBarHidden
-{
-    return NO;
-}
 
 @end

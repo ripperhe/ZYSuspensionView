@@ -62,6 +62,8 @@ static ZYTestManager *_instance;
 {
 #if DEBUG
     if ([ZYSuspensionManager windowForKey:kZYTestTableControllerKey]) {
+        ZYSuspensionContainer *window = (ZYSuspensionContainer *)[ZYSuspensionManager windowForKey:kZYTestTableControllerKey];
+        [window.lastKeyWindow makeKeyWindow];
         [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
         [ZYTestManager shareInstance].testTableViewController = nil;
     }else{
@@ -69,9 +71,11 @@ static ZYTestManager *_instance;
         ZYSuspensionContainer *window = [[ZYSuspensionContainer alloc] initWithFrame:[UIScreen mainScreen].bounds];
         window.rootViewController = testTableViewVC;
         window.windowLevel -= 1;
+        // 也许需要处理一些键盘输入的事件
+        window.zy_canBecomeKeyWindow = YES;
+        window.lastKeyWindow = [UIApplication sharedApplication].keyWindow;
         [window setHidden:NO];
         [ZYSuspensionManager saveWindow:window forKey:kZYTestTableControllerKey];
-
         [ZYTestManager shareInstance].testTableViewController = testTableViewVC;
     }
 #endif
@@ -130,6 +134,10 @@ static ZYTestManager *_instance;
 + (void)closeTestTableViewController
 {
 #if DEBUG
+    ZYSuspensionContainer *window = (ZYSuspensionContainer *)[ZYSuspensionManager windowForKey:kZYTestTableControllerKey];
+    if (window) {
+        [window.lastKeyWindow makeKeyWindow];
+    }
     [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
     [ZYTestManager shareInstance].testTableViewController = nil;
 #endif

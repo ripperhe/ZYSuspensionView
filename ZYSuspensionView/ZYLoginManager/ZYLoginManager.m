@@ -90,14 +90,12 @@ static ZYLoginManager *_instance;
         [ZYLoginManager shareInstance].loginTableViewController = nil;
     }else{
         
-        UIWindow *currentKeyWindow = [UIApplication sharedApplication].keyWindow;
         ZYLoginTableViewController *loginTableViewVC = [[ZYLoginTableViewController alloc] init];
         ZYSuspensionContainer *window = [[ZYSuspensionContainer alloc] initWithFrame:[UIScreen mainScreen].bounds];
         window.rootViewController = loginTableViewVC;
         window.windowLevel -= 1;
-        [window makeKeyAndVisible];
+        [window setHidden:NO];
         [ZYSuspensionManager saveWindow:window forKey:kZYLoginTableControllerKey];
-        [currentKeyWindow makeKeyWindow];
         [ZYLoginManager shareInstance].loginTableViewController = loginTableViewVC;
     }
 #endif

@@ -19,4 +19,17 @@
     }
     return self;
 }
+
+#pragma mark - private api
+- (BOOL)_canAffectStatusBarAppearance
+{
+    return self.zy_canAffectStatusBarAppearance;
+}
+
+- (bool)_canBecomeKeyWindow
+{
+    return self.zy_canBecomeKeyWindow;
+}
+
+
 @end
