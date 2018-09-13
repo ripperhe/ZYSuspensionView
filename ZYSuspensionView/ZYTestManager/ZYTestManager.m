@@ -63,7 +63,10 @@ static ZYTestManager *_instance;
 #if DEBUG
     if ([ZYSuspensionManager windowForKey:kZYTestTableControllerKey]) {
         ZYSuspensionContainer *window = (ZYSuspensionContainer *)[ZYSuspensionManager windowForKey:kZYTestTableControllerKey];
-        [window.lastKeyWindow makeKeyWindow];
+        if ([UIApplication sharedApplication].keyWindow == window) {
+            window.zy_canBecomeKeyWindow = NO;
+            [window.lastKeyWindow makeKeyWindow];
+        }
         [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];
         [ZYTestManager shareInstance].testTableViewController = nil;
     }else{
@@ -135,7 +138,8 @@ static ZYTestManager *_instance;
 {
 #if DEBUG
     ZYSuspensionContainer *window = (ZYSuspensionContainer *)[ZYSuspensionManager windowForKey:kZYTestTableControllerKey];
-    if (window) {
+    if ([UIApplication sharedApplication].keyWindow == window) {
+        window.zy_canBecomeKeyWindow = NO;
         [window.lastKeyWindow makeKeyWindow];
     }
     [ZYSuspensionManager destroyWindowForKey:kZYTestTableControllerKey];

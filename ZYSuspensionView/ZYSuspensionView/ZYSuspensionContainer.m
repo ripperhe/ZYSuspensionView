@@ -21,6 +21,8 @@
 }
 
 #pragma mark - private api
+
+#if DEBUG
 - (BOOL)_canAffectStatusBarAppearance
 {
     return self.zy_canAffectStatusBarAppearance;
@@ -30,6 +32,6 @@
 {
     return self.zy_canBecomeKeyWindow;
 }
-
+#endif
 
 @end
