@@ -1,8 +1,8 @@
 # ZYSuspensionView
 
-⚠️ The repository has a new address and a new name. [点击跳转 🚀](https://github.com/ripperhe/ZYDebugo)
+⚠️ The repository has a new address and a new name. [点击跳转 🚀](https://github.com/ripperhe/Debugo)
 
-⚠️ 本仓库有了一个新的地址和新的名字。 [点击跳转 🚀](https://github.com/ripperhe/ZYDebugo)
+⚠️ 本仓库有了一个新的地址和新的名字。 [点击跳转 🚀](https://github.com/ripperhe/Debugo)
 
 
 [![Version](https://img.shields.io/cocoapods/v/ZYSuspensionView.svg?style=flat)](http://cocoapods.org/pods/ZYSuspensionView)
